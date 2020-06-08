@@ -145,6 +145,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\..\..\..\..\Desktop\gwint.png" />
     <Image Include="..\..\..\..\Downloads\wood-1866654_1920.jpg" />
     <Image Include="app.ico" />
   </ItemGroup>

@@ -48,6 +48,12 @@
     <Image Include="app.ico">
       <Filter>Pliki zasobów</Filter>
     </Image>
+    <Image Include="..\..\..\..\Downloads\wood-1866654_1920.jpg">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="..\..\..\..\..\Desktop\gwint.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

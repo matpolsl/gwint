@@ -77,6 +77,7 @@ namespace Gwint {
 			this->pictureBox1->Size = System::Drawing::Size(500, 150);
 			this->pictureBox1->TabIndex = 0;
 			this->pictureBox1->TabStop = false;
+			this->pictureBox1->Click += gcnew System::EventHandler(this, &MyMenu::pictureBox1_Click);
 			// 
 			// contextMenuStrip1
 			// 
@@ -136,5 +137,7 @@ namespace Gwint {
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
-	};
+private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+};
 }
