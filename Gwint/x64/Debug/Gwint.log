@@ -1,5 +1,6 @@
-﻿  Gwint.cpp
+﻿  Game.cpp
+  Gwint.cpp
   MyMenu.cpp
   Generowanie kodu...
   AssemblyInfo.obj : napotkano moduł MSIL; konsolidowanie przyrostowe jest wyłączone dla modułów MSIL; zostanie wykonana pełna konsolidacja
-  Gwint.vcxproj -> C:\Users\Mateusz\source\repos\matpolsl\gwint\x64\Debug\Gwint.exe
+  Gwint.vcxproj -> C:\Users\Mateusz\source\repos\gwint2\x64\Debug\Gwint.exe

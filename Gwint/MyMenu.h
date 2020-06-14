@@ -1,5 +1,5 @@
 #pragma once
-
+#include "Game.h"
 namespace Gwint {
 
 	using namespace System;
@@ -71,10 +71,12 @@ namespace Gwint {
 			// pictureBox1
 			// 
 			this->pictureBox1->BackColor = System::Drawing::Color::Transparent;
+			this->pictureBox1->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(100, 10);
+			this->pictureBox1->Location = System::Drawing::Point(0, 0);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(500, 150);
+			this->pictureBox1->Padding = System::Windows::Forms::Padding(250, 30, 0, 0);
+			this->pictureBox1->Size = System::Drawing::Size(984, 711);
 			this->pictureBox1->TabIndex = 0;
 			this->pictureBox1->TabStop = false;
 			this->pictureBox1->Click += gcnew System::EventHandler(this, &MyMenu::pictureBox1_Click);
@@ -86,7 +88,7 @@ namespace Gwint {
 			// 
 			// Graj
 			// 
-			this->Graj->Location = System::Drawing::Point(400, 230);
+			this->Graj->Location = System::Drawing::Point(700, 230);
 			this->Graj->Name = L"Graj";
 			this->Graj->Size = System::Drawing::Size(200, 50);
 			this->Graj->TabIndex = 1;
@@ -96,7 +98,7 @@ namespace Gwint {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(400, 300);
+			this->button1->Location = System::Drawing::Point(700, 300);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(200, 50);
 			this->button1->TabIndex = 2;
@@ -105,7 +107,7 @@ namespace Gwint {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(400, 369);
+			this->button2->Location = System::Drawing::Point(700, 369);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(200, 50);
 			this->button2->TabIndex = 3;
@@ -118,13 +120,13 @@ namespace Gwint {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->ClientSize = System::Drawing::Size(734, 711);
+			this->ClientSize = System::Drawing::Size(984, 711);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->Graj);
 			this->Controls->Add(this->pictureBox1);
-			this->MaximumSize = System::Drawing::Size(750, 750);
-			this->MinimumSize = System::Drawing::Size(750, 750);
+			this->MaximumSize = System::Drawing::Size(1000, 750);
+			this->MinimumSize = System::Drawing::Size(1000, 750);
 			this->Name = L"MyMenu";
 			this->Text = L"Gra: Gwint";
 			this->Load += gcnew System::EventHandler(this, &MyMenu::MyMenu_Load);
@@ -136,6 +138,8 @@ namespace Gwint {
 	private: System::Void MyMenu_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		Form^ noweOkno = gcnew Game();
+		noweOkno->Show();
 	}
 private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
 }

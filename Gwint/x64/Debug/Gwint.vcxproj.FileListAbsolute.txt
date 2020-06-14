@@ -1,3 +1,7 @@
 C:\Users\Mateusz\source\repos\matpolsl\gwint\Gwint\x64\Debug\Gwint.vcxprojAssemblyReference.cache
 C:\Users\Mateusz\source\repos\matpolsl\gwint\Gwint\x64\Debug\Gwint.MyMenu.resources
 C:\Users\Mateusz\source\repos\matpolsl\gwint\Gwint\x64\Debug\Gwint.vcxproj.GenerateResource.cache
+C:\Users\Mateusz\source\repos\gwint2\Gwint\x64\Debug\Gwint.vcxprojAssemblyReference.cache
+C:\Users\Mateusz\source\repos\gwint2\Gwint\x64\Debug\Gwint.MyMenu.resources
+C:\Users\Mateusz\source\repos\gwint2\Gwint\x64\Debug\Gwint.vcxproj.GenerateResource.cache
+C:\Users\Mateusz\source\repos\gwint2\Gwint\x64\Debug\Gwint.Game.resources

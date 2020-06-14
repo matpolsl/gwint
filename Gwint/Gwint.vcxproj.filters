@@ -29,6 +29,9 @@
     <ClInclude Include="MyMenu.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Gwint.cpp">
@@ -43,15 +46,18 @@
     <ClCompile Include="MyMenu.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico">
       <Filter>Pliki zasobów</Filter>
     </Image>
-    <Image Include="..\..\..\..\Downloads\wood-1866654_1920.jpg">
+    <Image Include="wood-1866654_1920.jpg">
       <Filter>Pliki zasobów</Filter>
     </Image>
-    <Image Include="..\..\..\..\..\Desktop\gwint.png">
+    <Image Include="gwint.png">
       <Filter>Pliki zasobów</Filter>
     </Image>
   </ItemGroup>

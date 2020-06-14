@@ -96,7 +96,8 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies />
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
+      <EntryPointSymbol>main</EntryPointSymbol>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -127,6 +128,9 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Game.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="MyMenu.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -135,6 +139,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="Gwint.cpp" />
     <ClCompile Include="MyMenu.cpp" />
     <ClCompile Include="pch.cpp">
@@ -145,9 +150,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\..\..\..\..\Desktop\gwint.png" />
-    <Image Include="..\..\..\..\Downloads\wood-1866654_1920.jpg" />
     <Image Include="app.ico" />
+    <Image Include="gwint.png" />
+    <Image Include="wood-1866654_1920.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -160,6 +165,9 @@
     <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Game.resx">
+      <DependentUpon>Game.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyMenu.resx">
       <DependentUpon>MyMenu.h</DependentUpon>
     </EmbeddedResource>
