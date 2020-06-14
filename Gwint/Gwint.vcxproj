@@ -139,7 +139,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
-    <ClCompile Include="Game.cpp" />
     <ClCompile Include="Gwint.cpp" />
     <ClCompile Include="MyMenu.cpp" />
     <ClCompile Include="pch.cpp">
@@ -151,7 +150,41 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico" />
+    <Image Include="bitmap1.bmp" />
     <Image Include="gwint.png" />
+    <Image Include="img\Card\arrow1.png" />
+    <Image Include="img\Card\arrow10.png" />
+    <Image Include="img\Card\arrow2.png" />
+    <Image Include="img\Card\arrow3.png" />
+    <Image Include="img\Card\arrow4.png" />
+    <Image Include="img\Card\arrow5.png" />
+    <Image Include="img\Card\arrow6.png" />
+    <Image Include="img\Card\arrow7.png" />
+    <Image Include="img\Card\arrow8.png" />
+    <Image Include="img\Card\arrow9.png" />
+    <Image Include="img\Card\catapult1.png" />
+    <Image Include="img\Card\catapult10.png" />
+    <Image Include="img\Card\catapult2.png" />
+    <Image Include="img\Card\catapult3.png" />
+    <Image Include="img\Card\catapult4.png" />
+    <Image Include="img\Card\catapult5.png" />
+    <Image Include="img\Card\catapult6.png" />
+    <Image Include="img\Card\catapult7.png" />
+    <Image Include="img\Card\catapult8.png" />
+    <Image Include="img\Card\catapult9.png" />
+    <Image Include="img\Card\fog.png" />
+    <Image Include="img\Card\rain.png" />
+    <Image Include="img\Card\snow.png" />
+    <Image Include="img\Card\Sword1.png" />
+    <Image Include="img\Card\Sword10.png" />
+    <Image Include="img\Card\Sword2.png" />
+    <Image Include="img\Card\Sword3.png" />
+    <Image Include="img\Card\Sword4.png" />
+    <Image Include="img\Card\Sword5.png" />
+    <Image Include="img\Card\Sword6.png" />
+    <Image Include="img\Card\Sword7.png" />
+    <Image Include="img\Card\Sword8.png" />
+    <Image Include="img\Card\Sword9.png" />
     <Image Include="wood-1866654_1920.jpg" />
   </ItemGroup>
   <ItemGroup>

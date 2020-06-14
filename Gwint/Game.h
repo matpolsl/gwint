@@ -1,4 +1,9 @@
 #pragma once
+#include <String>
+#include <iostream>
+#include <random>
+
+
 
 namespace Gwint {
 
@@ -15,12 +20,15 @@ namespace Gwint {
 	public ref class Game : public System::Windows::Forms::Form
 	{
 	public:
+
 		Game(void)
 		{
 			InitializeComponent();
 			//
 			//TODO: W tym miejscu dodaj kod konstruktora
 			//
+
+			
 		}
 
 	protected:
@@ -42,12 +50,22 @@ namespace Gwint {
 	private: System::Windows::Forms::Label^ label5;
 	private: System::Windows::Forms::Label^ label6;
 	private: System::Windows::Forms::Label^ label7;
+	private: System::Windows::Forms::PictureBox^ Hand1;
+	private: System::Windows::Forms::PictureBox^ Hand2;
+	private: System::Windows::Forms::PictureBox^ Hand3;
+	private: System::Windows::Forms::PictureBox^ Hand4;
+	private: System::Windows::Forms::PictureBox^ Hand5;
+	private: System::Windows::Forms::PictureBox^ Hand6;
+	private: System::Windows::Forms::PictureBox^ Hand7;
+	private: System::Windows::Forms::PictureBox^ Hand8;
+	private: System::Windows::Forms::PictureBox^ Hand9;
+	private: System::Windows::Forms::PictureBox^ Hand10;
 
 	protected:
 
 	protected:
 
-	private:
+	public:
 		/// <summary>
 		/// Wymagana zmienna projektanta.
 		/// </summary>
@@ -69,6 +87,26 @@ namespace Gwint {
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->Hand1 = (gcnew System::Windows::Forms::PictureBox());
+			this->Hand2 = (gcnew System::Windows::Forms::PictureBox());
+			this->Hand3 = (gcnew System::Windows::Forms::PictureBox());
+			this->Hand4 = (gcnew System::Windows::Forms::PictureBox());
+			this->Hand5 = (gcnew System::Windows::Forms::PictureBox());
+			this->Hand6 = (gcnew System::Windows::Forms::PictureBox());
+			this->Hand7 = (gcnew System::Windows::Forms::PictureBox());
+			this->Hand8 = (gcnew System::Windows::Forms::PictureBox());
+			this->Hand9 = (gcnew System::Windows::Forms::PictureBox());
+			this->Hand10 = (gcnew System::Windows::Forms::PictureBox());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Hand1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Hand2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Hand3))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Hand4))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Hand5))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Hand6))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Hand7))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Hand8))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Hand9))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Hand10))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// button1
@@ -165,6 +203,98 @@ namespace Gwint {
 			this->label7->TabIndex = 7;
 			this->label7->Text = L"0";
 			// 
+			// Hand1
+			// 
+			this->Hand1->BackColor = System::Drawing::Color::Transparent;
+			
+			this->Hand1->Location = System::Drawing::Point(223, 634);
+			this->Hand1->Name = L"Hand1";
+			this->Hand1->Size = System::Drawing::Size(45, 80);
+			this->Hand1->TabIndex = 8;
+			this->Hand1->TabStop = false;
+			
+			// 
+			// Hand2
+			// 
+			this->Hand2->BackColor = System::Drawing::Color::Transparent;
+			this->Hand2->Location = System::Drawing::Point(274, 634);
+			this->Hand2->Name = L"Hand2";
+			this->Hand2->Size = System::Drawing::Size(45, 80);
+			this->Hand2->TabIndex = 9;
+			this->Hand2->TabStop = false;
+			// 
+			// Hand3
+			// 
+			this->Hand3->BackColor = System::Drawing::Color::Transparent;
+			this->Hand3->Location = System::Drawing::Point(325, 634);
+			this->Hand3->Name = L"Hand3";
+			this->Hand3->Size = System::Drawing::Size(45, 80);
+			this->Hand3->TabIndex = 10;
+			this->Hand3->TabStop = false;
+			// 
+			// Hand4
+			// 
+			this->Hand4->BackColor = System::Drawing::Color::Transparent;
+			this->Hand4->Location = System::Drawing::Point(376, 634);
+			this->Hand4->Name = L"Hand4";
+			this->Hand4->Size = System::Drawing::Size(45, 80);
+			this->Hand4->TabIndex = 11;
+			this->Hand4->TabStop = false;
+			// 
+			// Hand5
+			// 
+			this->Hand5->BackColor = System::Drawing::Color::Transparent;
+			this->Hand5->Location = System::Drawing::Point(427, 634);
+			this->Hand5->Name = L"Hand5";
+			this->Hand5->Size = System::Drawing::Size(45, 80);
+			this->Hand5->TabIndex = 12;
+			this->Hand5->TabStop = false;
+			// 
+			// Hand6
+			// 
+			this->Hand6->BackColor = System::Drawing::Color::Transparent;
+			this->Hand6->Location = System::Drawing::Point(478, 634);
+			this->Hand6->Name = L"Hand6";
+			this->Hand6->Size = System::Drawing::Size(45, 80);
+			this->Hand6->TabIndex = 13;
+			this->Hand6->TabStop = false;
+			// 
+			// Hand7
+			// 
+			this->Hand7->BackColor = System::Drawing::Color::Transparent;
+			this->Hand7->Location = System::Drawing::Point(529, 634);
+			this->Hand7->Name = L"Hand7";
+			this->Hand7->Size = System::Drawing::Size(45, 80);
+			this->Hand7->TabIndex = 14;
+			this->Hand7->TabStop = false;
+			// 
+			// Hand8
+			// 
+			this->Hand8->BackColor = System::Drawing::Color::Transparent;
+			this->Hand8->Location = System::Drawing::Point(580, 634);
+			this->Hand8->Name = L"Hand8";
+			this->Hand8->Size = System::Drawing::Size(45, 80);
+			this->Hand8->TabIndex = 15;
+			this->Hand8->TabStop = false;
+			// 
+			// Hand9
+			// 
+			this->Hand9->BackColor = System::Drawing::Color::Transparent;
+			this->Hand9->Location = System::Drawing::Point(631, 634);
+			this->Hand9->Name = L"Hand9";
+			this->Hand9->Size = System::Drawing::Size(45, 80);
+			this->Hand9->TabIndex = 16;
+			this->Hand9->TabStop = false;
+			// 
+			// Hand10
+			// 
+			this->Hand10->BackColor = System::Drawing::Color::Transparent;
+			this->Hand10->Location = System::Drawing::Point(687, 634);
+			this->Hand10->Name = L"Hand10";
+			this->Hand10->Size = System::Drawing::Size(45, 80);
+			this->Hand10->TabIndex = 17;
+			this->Hand10->TabStop = false;
+			// 
 			// Game
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -172,6 +302,16 @@ namespace Gwint {
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
 			this->ClientSize = System::Drawing::Size(744, 721);
+			this->Controls->Add(this->Hand10);
+			this->Controls->Add(this->Hand9);
+			this->Controls->Add(this->Hand8);
+			this->Controls->Add(this->Hand7);
+			this->Controls->Add(this->Hand6);
+			this->Controls->Add(this->Hand5);
+			this->Controls->Add(this->Hand4);
+			this->Controls->Add(this->Hand3);
+			this->Controls->Add(this->Hand2);
+			this->Controls->Add(this->Hand1);
 			this->Controls->Add(this->label7);
 			this->Controls->Add(this->label6);
 			this->Controls->Add(this->label5);
@@ -186,15 +326,31 @@ namespace Gwint {
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
 			this->Text = L"Game";
 			this->Load += gcnew System::EventHandler(this, &Game::Game_Load);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Hand1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Hand2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Hand3))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Hand4))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Hand5))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Hand6))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Hand7))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Hand8))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Hand9))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Hand10))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
+		
 
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->Hand1->Image = System::Drawing::Image::FromFile("img\\Card\\sword" + 1 + ".png");
+		this->Hand2->Image = System::Drawing::Image::FromFile("img\\Card\\arrow" + 2 + ".png");
+		this->Hand3->Image = System::Drawing::Image::FromFile("img\\Card\\catapult" + 3 + ".png");
+		
 	}
 	private: System::Void Game_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
-	};
+
+};
 }

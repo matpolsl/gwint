@@ -46,9 +46,6 @@
     <ClCompile Include="MyMenu.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico">
@@ -58,6 +55,108 @@
       <Filter>Pliki zasobów</Filter>
     </Image>
     <Image Include="gwint.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="img\Card\arrow1.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="img\Card\arrow2.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="img\Card\arrow3.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="img\Card\arrow4.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="img\Card\arrow5.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="img\Card\arrow6.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="img\Card\arrow7.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="img\Card\arrow8.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="img\Card\arrow9.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="img\Card\arrow10.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="img\Card\catapult1.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="img\Card\catapult2.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="img\Card\catapult3.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="img\Card\catapult4.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="img\Card\catapult5.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="img\Card\catapult6.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="img\Card\catapult7.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="img\Card\catapult8.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="img\Card\catapult9.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="img\Card\catapult10.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="img\Card\fog.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="img\Card\rain.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="img\Card\snow.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="img\Card\Sword1.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="img\Card\Sword2.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="img\Card\Sword3.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="img\Card\Sword4.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="img\Card\Sword5.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="img\Card\Sword6.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="img\Card\Sword7.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="img\Card\Sword8.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="img\Card\Sword9.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="img\Card\Sword10.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="bitmap1.bmp">
       <Filter>Pliki zasobów</Filter>
     </Image>
   </ItemGroup>

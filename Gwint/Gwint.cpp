@@ -6,7 +6,7 @@ using namespace Gwint;
 
 [STAThreadAttribute]
 
-int main(array <System::String^>^ args)
+int main()
 {
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);

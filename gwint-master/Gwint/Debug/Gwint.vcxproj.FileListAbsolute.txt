@@ -1,3 +1,0 @@
-C:\Users\Mateusz\source\repos\Gwint\Gwint\Debug\Gwint.vcxprojAssemblyReference.cache
-C:\Users\Mateusz\source\repos\Gwint\Gwint\Debug\Gwint.MyMenu.resources
-C:\Users\Mateusz\source\repos\Gwint\Gwint\Debug\Gwint.vcxproj.GenerateResource.cache
