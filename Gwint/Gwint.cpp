@@ -6,6 +6,7 @@ using namespace Gwint;
 
 [STAThreadAttribute]
 
+
 int main()
 {
 	Application::EnableVisualStyles();

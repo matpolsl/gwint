@@ -22,6 +22,7 @@ Class Gwint.Game: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     System.ComponentModel.Container components : Public
   Methods:
     InitializeComponent(): PrivateScope, Public, HideBySig
+    RandButton_Click(Object, EventArgs): PrivateScope, Public, HideBySig
 Class Gwint.MyMenu: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

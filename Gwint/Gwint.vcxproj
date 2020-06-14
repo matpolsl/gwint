@@ -131,6 +131,7 @@
     <ClInclude Include="Game.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Gra.h" />
     <ClInclude Include="MyMenu.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -139,6 +140,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="Gra.cpp" />
     <ClCompile Include="Gwint.cpp" />
     <ClCompile Include="MyMenu.cpp" />
     <ClCompile Include="pch.cpp">

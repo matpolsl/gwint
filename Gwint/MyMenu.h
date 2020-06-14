@@ -138,8 +138,8 @@ namespace Gwint {
 	private: System::Void MyMenu_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		Form^ noweOkno = gcnew Game();
-		noweOkno->Show();
+		Form^ Gra = gcnew Game();
+		Gra->Show();
 	}
 private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
 }
