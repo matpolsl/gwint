@@ -1324,7 +1324,7 @@ private: System::Windows::Forms::Button^ NewRound;
 			}
 
 		   void GRA_AI(AI* Gracz) {
-			   if (Gracz->W[1] + Gracz->W[0] + Gracz->W[2] > (W[0] + W[2] + W[1]) * 3) {
+			   if (Gracz->W[1] + Gracz->W[0] + Gracz->W[2] > (W[0] + W[2] + W[1]) + 8 && R[1]==0) {
 				   Gracz->pass = true;
 				   this->PASS->Text = "AI PASS!";
 			   }
@@ -1472,9 +1472,10 @@ private: System::Windows::Forms::Button^ NewRound;
 				   this->button1->Enabled = false;
 				   if (R[0] >= 2) {
 					   this->PASS->Text = "AI wygra³o!";
+					   if (R[0] == R[1]) this->PASS->Text = "Remis :c";
 				   }
 				   else {
-					   this->PASS->Text = "Wygra³eœ!";
+						this->PASS->Text = "Wygra³eœ!";
 				   }
 			   }
 			   else {

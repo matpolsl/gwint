@@ -121,11 +121,11 @@ namespace Gwint {
 			this->label1->BackColor = System::Drawing::Color::Transparent;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label1->Location = System::Drawing::Point(450, 670);
+			this->label1->Location = System::Drawing::Point(420, 670);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(127, 15);
+			this->label1->Size = System::Drawing::Size(193, 15);
 			this->label1->TabIndex = 4;
-			this->label1->Text = L"Autor: Mateusz Bereta";
+			this->label1->Text = L"Autor: Mateusz Bereta, Oskar Jany";
 			// 
 			// pictureBox2
 			// 
