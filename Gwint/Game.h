@@ -135,7 +135,7 @@ namespace Gwint {
 	private: System::Windows::Forms::PictureBox^ PS1;
 private: System::Windows::Forms::Label^ PASS;
 private: System::Windows::Forms::Button^ NewRound;
-private: System::Windows::Forms::FontDialog^ Podsumowanie;
+
 
 
 	protected:
@@ -241,7 +241,6 @@ private: System::Windows::Forms::FontDialog^ Podsumowanie;
 			this->PS1 = (gcnew System::Windows::Forms::PictureBox());
 			this->PASS = (gcnew System::Windows::Forms::Label());
 			this->NewRound = (gcnew System::Windows::Forms::Button());
-			this->Podsumowanie = (gcnew System::Windows::Forms::FontDialog());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Hand1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Hand2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Hand3))->BeginInit();
@@ -1324,7 +1323,7 @@ private: System::Windows::Forms::FontDialog^ Podsumowanie;
 			}
 
 		   void GRA_AI(AI* Gracz) {
-			   if (Gracz->W[1] + Gracz->W[0] + Gracz->W[2] > (W[0] + W[2] + W[1]) * 4) {
+			   if (Gracz->W[1] + Gracz->W[0] + Gracz->W[2] > (W[0] + W[2] + W[1]) * 3) {
 				   Gracz->pass = true;
 				   this->PASS->Text = "AI PASS!";
 			   }
@@ -1467,9 +1466,21 @@ private: System::Windows::Forms::FontDialog^ Podsumowanie;
 			   W[2] = 0;
 			   SumPoint();
 			   SumPointAI(Gracz);
-			   UserPass = false;
-			   Gracz->pass = false;
-			   this->PASS->Text = "";
+			   if (R[0] >= 2 || R[1] >= 2) {
+				   this->RandButton->Enabled = true;
+				   if (R[0] >= 2) {
+					   this->PASS->Text = "AI wygra³o!";
+				   }
+				   else {
+					   this->PASS->Text = "Wygra³eœ!";
+				   }
+			   }
+			   else {
+				   UserPass = false;
+				   Gracz->pass = false;
+				   this->PASS->Text = "";
+			   }
+
 		   }
 
 
@@ -1477,10 +1488,13 @@ private: System::Windows::Forms::FontDialog^ Podsumowanie;
 
 public: System::Void RandButton_Click(System::Object^ sender, System::EventArgs^ e) {
 	Gracz.ini();
-
+	this->PASS->Text = "";
+	this->Wynik->Text = "0/0";
 	W[0] = 0;
 	W[1] = 0;
 	W[2] = 0;
+	R[0] = 0;
+	R[1] = 0;
 	UserPass = false;
 	for (int i = 0; i < 10; i++) {
 		RandPoint[i] = std::rand() % 10 + 1;
