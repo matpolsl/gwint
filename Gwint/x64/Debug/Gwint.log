@@ -1,8 +1,4 @@
 ﻿  Gwint.cpp
-C:\Users\Mateusz\source\repos\gwint2\Gwint\Game.h(783,12): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
-  MyMenu.cpp
-C:\Users\Mateusz\source\repos\gwint2\Gwint\Game.h(783,12): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
-  Generowanie kodu...
   AssemblyInfo.obj : napotkano moduł MSIL; konsolidowanie przyrostowe jest wyłączone dla modułów MSIL; zostanie wykonana pełna konsolidacja
 .NETFramework,Version=v4.7.2.AssemblyAttributes.obj : warning LNK4099: nie znaleziono pliku PDB "vc142.pdb" z elementem ".NETFramework,Version=v4.7.2.AssemblyAttributes.obj" lub w pozycji "C:\Users\Mateusz\source\repos\gwint2\x64\Debug\vc142.pdb"; obiekt zostanie skonsolidowany bez informacji debugowania
   Gwint.vcxproj -> C:\Users\Mateusz\source\repos\gwint2\x64\Debug\Gwint.exe

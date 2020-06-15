@@ -1,11 +1,13 @@
 #pragma once
-#include <String>
-#include <iostream>
-#include <cstdlib>
-#include <ctime>
-#include "Gra.h"
-namespace Gwint {
 
+#include "Gra.h"
+int RandPoint[10];
+int RandType[10];
+int W[3];
+int pomocAI = 0;
+
+AI Gracz;
+namespace Gwint {
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
@@ -27,7 +29,6 @@ namespace Gwint {
 			//TODO: W tym miejscu dodaj kod konstruktora
 			//
 
-			
 		}
 
 	protected:
@@ -43,12 +44,19 @@ namespace Gwint {
 		}
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::Label^ label3;
-	private: System::Windows::Forms::Label^ label4;
-	private: System::Windows::Forms::Label^ label5;
-	private: System::Windows::Forms::Label^ label6;
-	private: System::Windows::Forms::Label^ label7;
+	private: System::Windows::Forms::Label^ CW;
+	private: System::Windows::Forms::Label^ AW;
+	private: System::Windows::Forms::Label^ SW;
+	private: System::Windows::Forms::Label^ PS;
+
+
+
+
+	private: System::Windows::Forms::Label^ PA;
+
+	private: System::Windows::Forms::Label^ PC;
+
+
 	private: System::Windows::Forms::PictureBox^ Hand1;
 	private: System::Windows::Forms::PictureBox^ Hand2;
 	private: System::Windows::Forms::PictureBox^ Hand3;
@@ -90,6 +98,41 @@ namespace Gwint {
 	private: System::Windows::Forms::PictureBox^ S8;
 	private: System::Windows::Forms::PictureBox^ S9;
 	private: System::Windows::Forms::PictureBox^ S10;
+	private: System::Windows::Forms::Label^ TekstM;
+	private: System::Windows::Forms::Label^ WM;
+	private: System::Windows::Forms::Label^ label2;
+	private: System::Windows::Forms::Label^ WP;
+	private: System::Windows::Forms::PictureBox^ PC10;
+	private: System::Windows::Forms::PictureBox^ PC9;
+	private: System::Windows::Forms::PictureBox^ PC8;
+	private: System::Windows::Forms::PictureBox^ PC7;
+	private: System::Windows::Forms::PictureBox^ PC6;
+	private: System::Windows::Forms::PictureBox^ PC5;
+	private: System::Windows::Forms::PictureBox^ PC4;
+	private: System::Windows::Forms::PictureBox^ PC3;
+	private: System::Windows::Forms::PictureBox^ PC2;
+	private: System::Windows::Forms::PictureBox^ PC1;
+	private: System::Windows::Forms::PictureBox^ PA10;
+	private: System::Windows::Forms::PictureBox^ PA9;
+	private: System::Windows::Forms::PictureBox^ PA8;
+	private: System::Windows::Forms::PictureBox^ PA7;
+	private: System::Windows::Forms::PictureBox^ PA6;
+	private: System::Windows::Forms::PictureBox^ PA5;
+	private: System::Windows::Forms::PictureBox^ PA4;
+	private: System::Windows::Forms::PictureBox^ PA3;
+	private: System::Windows::Forms::PictureBox^ PA2;
+	private: System::Windows::Forms::PictureBox^ PA1;
+	private: System::Windows::Forms::PictureBox^ PS10;
+	private: System::Windows::Forms::PictureBox^ PS9;
+	private: System::Windows::Forms::PictureBox^ PS8;
+	private: System::Windows::Forms::PictureBox^ PS7;
+	private: System::Windows::Forms::PictureBox^ PS6;
+	private: System::Windows::Forms::PictureBox^ PS5;
+	private: System::Windows::Forms::PictureBox^ PS4;
+	private: System::Windows::Forms::PictureBox^ PS3;
+	private: System::Windows::Forms::PictureBox^ PS2;
+	private: System::Windows::Forms::PictureBox^ PS1;
+
 
 	protected:
 
@@ -111,12 +154,12 @@ namespace Gwint {
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Game::typeid));
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->label5 = (gcnew System::Windows::Forms::Label());
-			this->label6 = (gcnew System::Windows::Forms::Label());
-			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->CW = (gcnew System::Windows::Forms::Label());
+			this->AW = (gcnew System::Windows::Forms::Label());
+			this->SW = (gcnew System::Windows::Forms::Label());
+			this->PS = (gcnew System::Windows::Forms::Label());
+			this->PA = (gcnew System::Windows::Forms::Label());
+			this->PC = (gcnew System::Windows::Forms::Label());
 			this->Hand1 = (gcnew System::Windows::Forms::PictureBox());
 			this->Hand2 = (gcnew System::Windows::Forms::PictureBox());
 			this->Hand3 = (gcnew System::Windows::Forms::PictureBox());
@@ -158,6 +201,40 @@ namespace Gwint {
 			this->S8 = (gcnew System::Windows::Forms::PictureBox());
 			this->S9 = (gcnew System::Windows::Forms::PictureBox());
 			this->S10 = (gcnew System::Windows::Forms::PictureBox());
+			this->TekstM = (gcnew System::Windows::Forms::Label());
+			this->WM = (gcnew System::Windows::Forms::Label());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->WP = (gcnew System::Windows::Forms::Label());
+			this->PC10 = (gcnew System::Windows::Forms::PictureBox());
+			this->PC9 = (gcnew System::Windows::Forms::PictureBox());
+			this->PC8 = (gcnew System::Windows::Forms::PictureBox());
+			this->PC7 = (gcnew System::Windows::Forms::PictureBox());
+			this->PC6 = (gcnew System::Windows::Forms::PictureBox());
+			this->PC5 = (gcnew System::Windows::Forms::PictureBox());
+			this->PC4 = (gcnew System::Windows::Forms::PictureBox());
+			this->PC3 = (gcnew System::Windows::Forms::PictureBox());
+			this->PC2 = (gcnew System::Windows::Forms::PictureBox());
+			this->PC1 = (gcnew System::Windows::Forms::PictureBox());
+			this->PA10 = (gcnew System::Windows::Forms::PictureBox());
+			this->PA9 = (gcnew System::Windows::Forms::PictureBox());
+			this->PA8 = (gcnew System::Windows::Forms::PictureBox());
+			this->PA7 = (gcnew System::Windows::Forms::PictureBox());
+			this->PA6 = (gcnew System::Windows::Forms::PictureBox());
+			this->PA5 = (gcnew System::Windows::Forms::PictureBox());
+			this->PA4 = (gcnew System::Windows::Forms::PictureBox());
+			this->PA3 = (gcnew System::Windows::Forms::PictureBox());
+			this->PA2 = (gcnew System::Windows::Forms::PictureBox());
+			this->PA1 = (gcnew System::Windows::Forms::PictureBox());
+			this->PS10 = (gcnew System::Windows::Forms::PictureBox());
+			this->PS9 = (gcnew System::Windows::Forms::PictureBox());
+			this->PS8 = (gcnew System::Windows::Forms::PictureBox());
+			this->PS7 = (gcnew System::Windows::Forms::PictureBox());
+			this->PS6 = (gcnew System::Windows::Forms::PictureBox());
+			this->PS5 = (gcnew System::Windows::Forms::PictureBox());
+			this->PS4 = (gcnew System::Windows::Forms::PictureBox());
+			this->PS3 = (gcnew System::Windows::Forms::PictureBox());
+			this->PS2 = (gcnew System::Windows::Forms::PictureBox());
+			this->PS1 = (gcnew System::Windows::Forms::PictureBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Hand1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Hand2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Hand3))->BeginInit();
@@ -198,6 +275,36 @@ namespace Gwint {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->S8))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->S9))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->S10))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PC10))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PC9))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PC8))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PC7))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PC6))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PC5))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PC4))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PC3))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PC2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PC1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PA10))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PA9))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PA8))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PA7))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PA6))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PA5))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PA4))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PA3))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PA2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PA1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PS10))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PS9))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PS8))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PS7))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PS6))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PS5))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PS4))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PS3))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PS2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PS1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// button1
@@ -216,83 +323,83 @@ namespace Gwint {
 			this->label1->BackColor = System::Drawing::Color::Transparent;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 27.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label1->Location = System::Drawing::Point(21, 634);
+			this->label1->Location = System::Drawing::Point(21, 672);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(70, 42);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"0/0";
 			// 
-			// label2
+			// CW
 			// 
-			this->label2->AutoSize = true;
-			this->label2->BackColor = System::Drawing::Color::Transparent;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 48, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->CW->AutoSize = true;
+			this->CW->BackColor = System::Drawing::Color::Transparent;
+			this->CW->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 48, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label2->Location = System::Drawing::Point(12, 505);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(68, 73);
-			this->label2->TabIndex = 2;
-			this->label2->Text = L"0";
+			this->CW->Location = System::Drawing::Point(-5, 505);
+			this->CW->Name = L"CW";
+			this->CW->Size = System::Drawing::Size(68, 73);
+			this->CW->TabIndex = 2;
+			this->CW->Text = L"0";
 			// 
-			// label3
+			// AW
 			// 
-			this->label3->AutoSize = true;
-			this->label3->BackColor = System::Drawing::Color::Transparent;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 48, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->AW->AutoSize = true;
+			this->AW->BackColor = System::Drawing::Color::Transparent;
+			this->AW->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 48, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label3->Location = System::Drawing::Point(12, 420);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(68, 73);
-			this->label3->TabIndex = 3;
-			this->label3->Text = L"0";
+			this->AW->Location = System::Drawing::Point(-5, 420);
+			this->AW->Name = L"AW";
+			this->AW->Size = System::Drawing::Size(68, 73);
+			this->AW->TabIndex = 3;
+			this->AW->Text = L"0";
 			// 
-			// label4
+			// SW
 			// 
-			this->label4->AutoSize = true;
-			this->label4->BackColor = System::Drawing::Color::Transparent;
-			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 48, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->SW->AutoSize = true;
+			this->SW->BackColor = System::Drawing::Color::Transparent;
+			this->SW->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 48, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label4->Location = System::Drawing::Point(12, 334);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(68, 73);
-			this->label4->TabIndex = 4;
-			this->label4->Text = L"0";
+			this->SW->Location = System::Drawing::Point(-5, 334);
+			this->SW->Name = L"SW";
+			this->SW->Size = System::Drawing::Size(68, 73);
+			this->SW->TabIndex = 4;
+			this->SW->Text = L"0";
 			// 
-			// label5
+			// PS
 			// 
-			this->label5->AutoSize = true;
-			this->label5->BackColor = System::Drawing::Color::Transparent;
-			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 48, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->PS->AutoSize = true;
+			this->PS->BackColor = System::Drawing::Color::Transparent;
+			this->PS->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 48, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label5->Location = System::Drawing::Point(15, 210);
-			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(68, 73);
-			this->label5->TabIndex = 5;
-			this->label5->Text = L"0";
+			this->PS->Location = System::Drawing::Point(-5, 209);
+			this->PS->Name = L"PS";
+			this->PS->Size = System::Drawing::Size(68, 73);
+			this->PS->TabIndex = 5;
+			this->PS->Text = L"0";
 			// 
-			// label6
+			// PA
 			// 
-			this->label6->AutoSize = true;
-			this->label6->BackColor = System::Drawing::Color::Transparent;
-			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 48, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->PA->AutoSize = true;
+			this->PA->BackColor = System::Drawing::Color::Transparent;
+			this->PA->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 48, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label6->Location = System::Drawing::Point(15, 118);
-			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(68, 73);
-			this->label6->TabIndex = 6;
-			this->label6->Text = L"0";
+			this->PA->Location = System::Drawing::Point(-5, 120);
+			this->PA->Name = L"PA";
+			this->PA->Size = System::Drawing::Size(68, 73);
+			this->PA->TabIndex = 6;
+			this->PA->Text = L"0";
 			// 
-			// label7
+			// PC
 			// 
-			this->label7->AutoSize = true;
-			this->label7->BackColor = System::Drawing::Color::Transparent;
-			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 48, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->PC->AutoSize = true;
+			this->PC->BackColor = System::Drawing::Color::Transparent;
+			this->PC->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 48, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label7->Location = System::Drawing::Point(15, 32);
-			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(68, 73);
-			this->label7->TabIndex = 7;
-			this->label7->Text = L"0";
+			this->PC->Location = System::Drawing::Point(-5, 32);
+			this->PC->Name = L"PC";
+			this->PC->Size = System::Drawing::Size(68, 73);
+			this->PC->TabIndex = 7;
+			this->PC->Text = L"0";
 			// 
 			// Hand1
 			// 
@@ -312,6 +419,7 @@ namespace Gwint {
 			this->Hand2->Size = System::Drawing::Size(45, 80);
 			this->Hand2->TabIndex = 9;
 			this->Hand2->TabStop = false;
+			this->Hand2->Click += gcnew System::EventHandler(this, &Game::Hand2_Click_1);
 			// 
 			// Hand3
 			// 
@@ -321,6 +429,7 @@ namespace Gwint {
 			this->Hand3->Size = System::Drawing::Size(45, 80);
 			this->Hand3->TabIndex = 10;
 			this->Hand3->TabStop = false;
+			this->Hand3->Click += gcnew System::EventHandler(this, &Game::Hand3_Click);
 			// 
 			// Hand4
 			// 
@@ -330,6 +439,7 @@ namespace Gwint {
 			this->Hand4->Size = System::Drawing::Size(45, 80);
 			this->Hand4->TabIndex = 11;
 			this->Hand4->TabStop = false;
+			this->Hand4->Click += gcnew System::EventHandler(this, &Game::Hand4_Click);
 			// 
 			// Hand5
 			// 
@@ -339,6 +449,7 @@ namespace Gwint {
 			this->Hand5->Size = System::Drawing::Size(45, 80);
 			this->Hand5->TabIndex = 12;
 			this->Hand5->TabStop = false;
+			this->Hand5->Click += gcnew System::EventHandler(this, &Game::Hand5_Click);
 			// 
 			// Hand6
 			// 
@@ -348,6 +459,7 @@ namespace Gwint {
 			this->Hand6->Size = System::Drawing::Size(45, 80);
 			this->Hand6->TabIndex = 13;
 			this->Hand6->TabStop = false;
+			this->Hand6->Click += gcnew System::EventHandler(this, &Game::Hand6_Click);
 			// 
 			// Hand7
 			// 
@@ -357,6 +469,7 @@ namespace Gwint {
 			this->Hand7->Size = System::Drawing::Size(45, 80);
 			this->Hand7->TabIndex = 14;
 			this->Hand7->TabStop = false;
+			this->Hand7->Click += gcnew System::EventHandler(this, &Game::Hand7_Click);
 			// 
 			// Hand8
 			// 
@@ -366,6 +479,7 @@ namespace Gwint {
 			this->Hand8->Size = System::Drawing::Size(45, 80);
 			this->Hand8->TabIndex = 15;
 			this->Hand8->TabStop = false;
+			this->Hand8->Click += gcnew System::EventHandler(this, &Game::Hand8_Click);
 			// 
 			// Hand9
 			// 
@@ -375,6 +489,7 @@ namespace Gwint {
 			this->Hand9->Size = System::Drawing::Size(45, 80);
 			this->Hand9->TabIndex = 16;
 			this->Hand9->TabStop = false;
+			this->Hand9->Click += gcnew System::EventHandler(this, &Game::Hand9_Click);
 			// 
 			// Hand10
 			// 
@@ -384,6 +499,7 @@ namespace Gwint {
 			this->Hand10->Size = System::Drawing::Size(45, 80);
 			this->Hand10->TabIndex = 17;
 			this->Hand10->TabStop = false;
+			this->Hand10->Click += gcnew System::EventHandler(this, &Game::Hand10_Click);
 			// 
 			// RandButton
 			// 
@@ -665,6 +781,324 @@ namespace Gwint {
 			this->S10->TabIndex = 48;
 			this->S10->TabStop = false;
 			// 
+			// TekstM
+			// 
+			this->TekstM->AutoSize = true;
+			this->TekstM->BackColor = System::Drawing::Color::Transparent;
+			this->TekstM->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->TekstM->Location = System::Drawing::Point(4, 619);
+			this->TekstM->Name = L"TekstM";
+			this->TekstM->Size = System::Drawing::Size(76, 15);
+			this->TekstM->TabIndex = 49;
+			this->TekstM->Text = L"Moje punkty:";
+			// 
+			// WM
+			// 
+			this->WM->AutoSize = true;
+			this->WM->BackColor = System::Drawing::Color::Transparent;
+			this->WM->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->WM->Location = System::Drawing::Point(86, 619);
+			this->WM->Name = L"WM";
+			this->WM->Size = System::Drawing::Size(14, 15);
+			this->WM->TabIndex = 50;
+			this->WM->Text = L"0";
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->BackColor = System::Drawing::Color::Transparent;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->label2->Location = System::Drawing::Point(4, 648);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(59, 15);
+			this->label2->TabIndex = 51;
+			this->label2->Text = L"Punkty AI:";
+			// 
+			// WP
+			// 
+			this->WP->AutoSize = true;
+			this->WP->BackColor = System::Drawing::Color::Transparent;
+			this->WP->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->WP->Location = System::Drawing::Point(86, 648);
+			this->WP->Name = L"WP";
+			this->WP->Size = System::Drawing::Size(14, 15);
+			this->WP->TabIndex = 52;
+			this->WP->Text = L"0";
+			// 
+			// PC10
+			// 
+			this->PC10->BackColor = System::Drawing::Color::Transparent;
+			this->PC10->Location = System::Drawing::Point(682, 32);
+			this->PC10->Name = L"PC10";
+			this->PC10->Size = System::Drawing::Size(45, 80);
+			this->PC10->TabIndex = 82;
+			this->PC10->TabStop = false;
+			// 
+			// PC9
+			// 
+			this->PC9->BackColor = System::Drawing::Color::Transparent;
+			this->PC9->Location = System::Drawing::Point(631, 32);
+			this->PC9->Name = L"PC9";
+			this->PC9->Size = System::Drawing::Size(45, 80);
+			this->PC9->TabIndex = 81;
+			this->PC9->TabStop = false;
+			// 
+			// PC8
+			// 
+			this->PC8->BackColor = System::Drawing::Color::Transparent;
+			this->PC8->Location = System::Drawing::Point(580, 32);
+			this->PC8->Name = L"PC8";
+			this->PC8->Size = System::Drawing::Size(45, 80);
+			this->PC8->TabIndex = 80;
+			this->PC8->TabStop = false;
+			// 
+			// PC7
+			// 
+			this->PC7->BackColor = System::Drawing::Color::Transparent;
+			this->PC7->Location = System::Drawing::Point(529, 32);
+			this->PC7->Name = L"PC7";
+			this->PC7->Size = System::Drawing::Size(45, 80);
+			this->PC7->TabIndex = 79;
+			this->PC7->TabStop = false;
+			// 
+			// PC6
+			// 
+			this->PC6->BackColor = System::Drawing::Color::Transparent;
+			this->PC6->Location = System::Drawing::Point(478, 32);
+			this->PC6->Name = L"PC6";
+			this->PC6->Size = System::Drawing::Size(45, 80);
+			this->PC6->TabIndex = 78;
+			this->PC6->TabStop = false;
+			// 
+			// PC5
+			// 
+			this->PC5->BackColor = System::Drawing::Color::Transparent;
+			this->PC5->Location = System::Drawing::Point(427, 32);
+			this->PC5->Name = L"PC5";
+			this->PC5->Size = System::Drawing::Size(45, 80);
+			this->PC5->TabIndex = 77;
+			this->PC5->TabStop = false;
+			// 
+			// PC4
+			// 
+			this->PC4->BackColor = System::Drawing::Color::Transparent;
+			this->PC4->Location = System::Drawing::Point(376, 32);
+			this->PC4->Name = L"PC4";
+			this->PC4->Size = System::Drawing::Size(45, 80);
+			this->PC4->TabIndex = 76;
+			this->PC4->TabStop = false;
+			// 
+			// PC3
+			// 
+			this->PC3->BackColor = System::Drawing::Color::Transparent;
+			this->PC3->Location = System::Drawing::Point(325, 32);
+			this->PC3->Name = L"PC3";
+			this->PC3->Size = System::Drawing::Size(45, 80);
+			this->PC3->TabIndex = 75;
+			this->PC3->TabStop = false;
+			// 
+			// PC2
+			// 
+			this->PC2->BackColor = System::Drawing::Color::Transparent;
+			this->PC2->Location = System::Drawing::Point(274, 32);
+			this->PC2->Name = L"PC2";
+			this->PC2->Size = System::Drawing::Size(45, 80);
+			this->PC2->TabIndex = 74;
+			this->PC2->TabStop = false;
+			// 
+			// PC1
+			// 
+			this->PC1->BackColor = System::Drawing::Color::Transparent;
+			this->PC1->Location = System::Drawing::Point(223, 32);
+			this->PC1->Name = L"PC1";
+			this->PC1->Size = System::Drawing::Size(45, 80);
+			this->PC1->TabIndex = 73;
+			this->PC1->TabStop = false;
+			// 
+			// PA10
+			// 
+			this->PA10->BackColor = System::Drawing::Color::Transparent;
+			this->PA10->Location = System::Drawing::Point(682, 118);
+			this->PA10->Name = L"PA10";
+			this->PA10->Size = System::Drawing::Size(45, 80);
+			this->PA10->TabIndex = 72;
+			this->PA10->TabStop = false;
+			// 
+			// PA9
+			// 
+			this->PA9->BackColor = System::Drawing::Color::Transparent;
+			this->PA9->Location = System::Drawing::Point(631, 118);
+			this->PA9->Name = L"PA9";
+			this->PA9->Size = System::Drawing::Size(45, 80);
+			this->PA9->TabIndex = 71;
+			this->PA9->TabStop = false;
+			// 
+			// PA8
+			// 
+			this->PA8->BackColor = System::Drawing::Color::Transparent;
+			this->PA8->Location = System::Drawing::Point(580, 118);
+			this->PA8->Name = L"PA8";
+			this->PA8->Size = System::Drawing::Size(45, 80);
+			this->PA8->TabIndex = 70;
+			this->PA8->TabStop = false;
+			// 
+			// PA7
+			// 
+			this->PA7->BackColor = System::Drawing::Color::Transparent;
+			this->PA7->Location = System::Drawing::Point(529, 118);
+			this->PA7->Name = L"PA7";
+			this->PA7->Size = System::Drawing::Size(45, 80);
+			this->PA7->TabIndex = 69;
+			this->PA7->TabStop = false;
+			// 
+			// PA6
+			// 
+			this->PA6->BackColor = System::Drawing::Color::Transparent;
+			this->PA6->Location = System::Drawing::Point(478, 118);
+			this->PA6->Name = L"PA6";
+			this->PA6->Size = System::Drawing::Size(45, 80);
+			this->PA6->TabIndex = 68;
+			this->PA6->TabStop = false;
+			// 
+			// PA5
+			// 
+			this->PA5->BackColor = System::Drawing::Color::Transparent;
+			this->PA5->Location = System::Drawing::Point(427, 118);
+			this->PA5->Name = L"PA5";
+			this->PA5->Size = System::Drawing::Size(45, 80);
+			this->PA5->TabIndex = 67;
+			this->PA5->TabStop = false;
+			// 
+			// PA4
+			// 
+			this->PA4->BackColor = System::Drawing::Color::Transparent;
+			this->PA4->Location = System::Drawing::Point(376, 118);
+			this->PA4->Name = L"PA4";
+			this->PA4->Size = System::Drawing::Size(45, 80);
+			this->PA4->TabIndex = 66;
+			this->PA4->TabStop = false;
+			// 
+			// PA3
+			// 
+			this->PA3->BackColor = System::Drawing::Color::Transparent;
+			this->PA3->Location = System::Drawing::Point(325, 118);
+			this->PA3->Name = L"PA3";
+			this->PA3->Size = System::Drawing::Size(45, 80);
+			this->PA3->TabIndex = 65;
+			this->PA3->TabStop = false;
+			// 
+			// PA2
+			// 
+			this->PA2->BackColor = System::Drawing::Color::Transparent;
+			this->PA2->Location = System::Drawing::Point(274, 118);
+			this->PA2->Name = L"PA2";
+			this->PA2->Size = System::Drawing::Size(45, 80);
+			this->PA2->TabIndex = 64;
+			this->PA2->TabStop = false;
+			// 
+			// PA1
+			// 
+			this->PA1->BackColor = System::Drawing::Color::Transparent;
+			this->PA1->Location = System::Drawing::Point(223, 118);
+			this->PA1->Name = L"PA1";
+			this->PA1->Size = System::Drawing::Size(45, 80);
+			this->PA1->TabIndex = 63;
+			this->PA1->TabStop = false;
+			// 
+			// PS10
+			// 
+			this->PS10->BackColor = System::Drawing::Color::Transparent;
+			this->PS10->Location = System::Drawing::Point(687, 204);
+			this->PS10->Name = L"PS10";
+			this->PS10->Size = System::Drawing::Size(45, 80);
+			this->PS10->TabIndex = 62;
+			this->PS10->TabStop = false;
+			// 
+			// PS9
+			// 
+			this->PS9->BackColor = System::Drawing::Color::Transparent;
+			this->PS9->Location = System::Drawing::Point(631, 202);
+			this->PS9->Name = L"PS9";
+			this->PS9->Size = System::Drawing::Size(45, 80);
+			this->PS9->TabIndex = 61;
+			this->PS9->TabStop = false;
+			// 
+			// PS8
+			// 
+			this->PS8->BackColor = System::Drawing::Color::Transparent;
+			this->PS8->Location = System::Drawing::Point(580, 202);
+			this->PS8->Name = L"PS8";
+			this->PS8->Size = System::Drawing::Size(45, 80);
+			this->PS8->TabIndex = 60;
+			this->PS8->TabStop = false;
+			// 
+			// PS7
+			// 
+			this->PS7->BackColor = System::Drawing::Color::Transparent;
+			this->PS7->Location = System::Drawing::Point(529, 202);
+			this->PS7->Name = L"PS7";
+			this->PS7->Size = System::Drawing::Size(45, 80);
+			this->PS7->TabIndex = 59;
+			this->PS7->TabStop = false;
+			// 
+			// PS6
+			// 
+			this->PS6->BackColor = System::Drawing::Color::Transparent;
+			this->PS6->Location = System::Drawing::Point(478, 202);
+			this->PS6->Name = L"PS6";
+			this->PS6->Size = System::Drawing::Size(45, 80);
+			this->PS6->TabIndex = 58;
+			this->PS6->TabStop = false;
+			// 
+			// PS5
+			// 
+			this->PS5->BackColor = System::Drawing::Color::Transparent;
+			this->PS5->Location = System::Drawing::Point(427, 202);
+			this->PS5->Name = L"PS5";
+			this->PS5->Size = System::Drawing::Size(45, 80);
+			this->PS5->TabIndex = 57;
+			this->PS5->TabStop = false;
+			// 
+			// PS4
+			// 
+			this->PS4->BackColor = System::Drawing::Color::Transparent;
+			this->PS4->Location = System::Drawing::Point(376, 202);
+			this->PS4->Name = L"PS4";
+			this->PS4->Size = System::Drawing::Size(45, 80);
+			this->PS4->TabIndex = 56;
+			this->PS4->TabStop = false;
+			// 
+			// PS3
+			// 
+			this->PS3->BackColor = System::Drawing::Color::Transparent;
+			this->PS3->Location = System::Drawing::Point(325, 204);
+			this->PS3->Name = L"PS3";
+			this->PS3->Size = System::Drawing::Size(45, 80);
+			this->PS3->TabIndex = 55;
+			this->PS3->TabStop = false;
+			// 
+			// PS2
+			// 
+			this->PS2->BackColor = System::Drawing::Color::Transparent;
+			this->PS2->Location = System::Drawing::Point(274, 204);
+			this->PS2->Name = L"PS2";
+			this->PS2->Size = System::Drawing::Size(45, 80);
+			this->PS2->TabIndex = 54;
+			this->PS2->TabStop = false;
+			// 
+			// PS1
+			// 
+			this->PS1->BackColor = System::Drawing::Color::Transparent;
+			this->PS1->Location = System::Drawing::Point(223, 202);
+			this->PS1->Name = L"PS1";
+			this->PS1->Size = System::Drawing::Size(45, 80);
+			this->PS1->TabIndex = 53;
+			this->PS1->TabStop = false;
+			// 
 			// Game
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -672,6 +1106,40 @@ namespace Gwint {
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
 			this->ClientSize = System::Drawing::Size(744, 721);
+			this->Controls->Add(this->PC10);
+			this->Controls->Add(this->PC9);
+			this->Controls->Add(this->PC8);
+			this->Controls->Add(this->PC7);
+			this->Controls->Add(this->PC6);
+			this->Controls->Add(this->PC5);
+			this->Controls->Add(this->PC4);
+			this->Controls->Add(this->PC3);
+			this->Controls->Add(this->PC2);
+			this->Controls->Add(this->PC1);
+			this->Controls->Add(this->PA10);
+			this->Controls->Add(this->PA9);
+			this->Controls->Add(this->PA8);
+			this->Controls->Add(this->PA7);
+			this->Controls->Add(this->PA6);
+			this->Controls->Add(this->PA5);
+			this->Controls->Add(this->PA4);
+			this->Controls->Add(this->PA3);
+			this->Controls->Add(this->PA2);
+			this->Controls->Add(this->PA1);
+			this->Controls->Add(this->PS10);
+			this->Controls->Add(this->PS9);
+			this->Controls->Add(this->PS8);
+			this->Controls->Add(this->PS7);
+			this->Controls->Add(this->PS6);
+			this->Controls->Add(this->PS5);
+			this->Controls->Add(this->PS4);
+			this->Controls->Add(this->PS3);
+			this->Controls->Add(this->PS2);
+			this->Controls->Add(this->PS1);
+			this->Controls->Add(this->WP);
+			this->Controls->Add(this->label2);
+			this->Controls->Add(this->WM);
+			this->Controls->Add(this->TekstM);
 			this->Controls->Add(this->S10);
 			this->Controls->Add(this->S9);
 			this->Controls->Add(this->S8);
@@ -713,12 +1181,12 @@ namespace Gwint {
 			this->Controls->Add(this->Hand3);
 			this->Controls->Add(this->Hand2);
 			this->Controls->Add(this->Hand1);
-			this->Controls->Add(this->label7);
-			this->Controls->Add(this->label6);
-			this->Controls->Add(this->label5);
-			this->Controls->Add(this->label4);
-			this->Controls->Add(this->label3);
-			this->Controls->Add(this->label2);
+			this->Controls->Add(this->PC);
+			this->Controls->Add(this->PA);
+			this->Controls->Add(this->PS);
+			this->Controls->Add(this->SW);
+			this->Controls->Add(this->AW);
+			this->Controls->Add(this->CW);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->button1);
 			this->MaximumSize = System::Drawing::Size(760, 760);
@@ -767,22 +1235,158 @@ namespace Gwint {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->S8))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->S9))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->S10))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PC10))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PC9))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PC8))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PC7))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PC6))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PC5))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PC4))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PC3))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PC2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PC1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PA10))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PA9))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PA8))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PA7))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PA6))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PA5))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PA4))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PA3))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PA2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PA1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PS10))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PS9))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PS8))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PS7))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PS6))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PS5))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PS4))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PS3))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PS2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PS1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-		
 
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void Game_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
-		   
+
+		   void POINT_AI(AI Gracz) {
+			   this->PA->Text = GetPoint(Gracz.W[1]);
+			   this->PC->Text = GetPoint(Gracz.W[2]);
+			   this->PS->Text = GetPoint(Gracz.W[0]);
+			}
+
+
+
+		   void GRA_AI(AI Gracz) {
+			   int id = Gracz.Choice();
+			   id += pomocAI;
+			   pomocAI++;
+			   switch (id) {
+			   case 0:
+				   if (Gracz.RandType[id] == 1) this->PS1->Image = System::Drawing::Image::FromFile("img\\Card\\sword" + Gracz.RandPoint[0] + ".png");
+				   if (Gracz.RandType[id] == 2) this->PA1->Image = System::Drawing::Image::FromFile("img\\Card\\arrow" + Gracz.RandPoint[0] + ".png");
+				   if (Gracz.RandType[id] == 3) this->PC1->Image = System::Drawing::Image::FromFile("img\\Card\\catapult" + Gracz.RandPoint[0] + ".png");
+				   Gracz.Point(id);
+				   POINT_AI(Gracz);
+				   Gracz.zero(id);
+				   break;
+			   case 1:
+				   if (Gracz.RandType[id] == 1) this->PS2->Image = System::Drawing::Image::FromFile("img\\Card\\sword" + Gracz.RandPoint[id] + ".png");
+				   if (Gracz.RandType[id] == 2) this->PA2->Image = System::Drawing::Image::FromFile("img\\Card\\arrow" + Gracz.RandPoint[id] + ".png");
+				   if (Gracz.RandType[id] == 3) this->PC2->Image = System::Drawing::Image::FromFile("img\\Card\\catapult" + Gracz.RandPoint[id] + ".png");
+				   Gracz.Point(id);
+				   POINT_AI(Gracz);
+				   Gracz.zero(id);
+				   break;
+			   case 2:
+				   if (Gracz.RandType[id] == 1) this->PS3->Image = System::Drawing::Image::FromFile("img\\Card\\sword" + Gracz.RandPoint[id] + ".png");
+				   if (Gracz.RandType[id] == 2) this->PA3->Image = System::Drawing::Image::FromFile("img\\Card\\arrow" + Gracz.RandPoint[id] + ".png");
+				   if (Gracz.RandType[id] == 3) this->PC3->Image = System::Drawing::Image::FromFile("img\\Card\\catapult" + Gracz.RandPoint[id] + ".png");
+				   Gracz.Point(id);
+				   POINT_AI(Gracz);
+				   Gracz.zero(id);
+				   break;
+			   case 3:
+				   if (Gracz.RandType[id] == 1) this->PS4->Image = System::Drawing::Image::FromFile("img\\Card\\sword" + Gracz.RandPoint[id] + ".png");
+				   if (Gracz.RandType[id] == 2) this->PA4->Image = System::Drawing::Image::FromFile("img\\Card\\arrow" + Gracz.RandPoint[id] + ".png");
+				   if (Gracz.RandType[id] == 3) this->PC4->Image = System::Drawing::Image::FromFile("img\\Card\\catapult" + Gracz.RandPoint[id] + ".png");
+				   Gracz.Point(id);
+				   POINT_AI(Gracz);
+				   Gracz.zero(id);
+				   break;
+			   case 4:
+				   if (Gracz.RandType[id] == 1) this->PS5->Image = System::Drawing::Image::FromFile("img\\Card\\sword" + Gracz.RandPoint[id] + ".png");
+				   if (Gracz.RandType[id] == 2) this->PA5->Image = System::Drawing::Image::FromFile("img\\Card\\arrow" + Gracz.RandPoint[id] + ".png");
+				   if (Gracz.RandType[id] == 3) this->PC5->Image = System::Drawing::Image::FromFile("img\\Card\\catapult" + Gracz.RandPoint[id] + ".png");
+				   Gracz.Point(id);
+				   POINT_AI(Gracz);
+				   Gracz.zero(id);
+				   break;
+			   case 5:
+				   if (Gracz.RandType[id] == 1) this->PS6->Image = System::Drawing::Image::FromFile("img\\Card\\sword" + Gracz.RandPoint[id] + ".png");
+				   if (Gracz.RandType[id] == 2) this->PA6->Image = System::Drawing::Image::FromFile("img\\Card\\arrow" + Gracz.RandPoint[id] + ".png");
+				   if (Gracz.RandType[id] == 3) this->PC6->Image = System::Drawing::Image::FromFile("img\\Card\\catapult" + Gracz.RandPoint[id] + ".png");
+				   Gracz.Point(id);
+				   POINT_AI(Gracz);
+				   Gracz.zero(id);
+				   break;
+			   case 6:
+				   if (Gracz.RandType[id] == 1) this->PS7->Image = System::Drawing::Image::FromFile("img\\Card\\sword" + Gracz.RandPoint[id] + ".png");
+				   if (Gracz.RandType[id] == 2) this->PA7->Image = System::Drawing::Image::FromFile("img\\Card\\arrow" + Gracz.RandPoint[id] + ".png");
+				   if (Gracz.RandType[id] == 3) this->PC7->Image = System::Drawing::Image::FromFile("img\\Card\\catapult" + Gracz.RandPoint[id] + ".png");
+				   Gracz.Point(id);
+				   POINT_AI(Gracz);
+				   Gracz.zero(id);
+				   break;
+			   case 7:
+				   if (Gracz.RandType[id] == 1) this->PS8->Image = System::Drawing::Image::FromFile("img\\Card\\sword" + Gracz.RandPoint[id] + ".png");
+				   if (Gracz.RandType[id] == 2) this->PA8->Image = System::Drawing::Image::FromFile("img\\Card\\arrow" + Gracz.RandPoint[id] + ".png");
+				   if (Gracz.RandType[id] == 3) this->PC8->Image = System::Drawing::Image::FromFile("img\\Card\\catapult" + Gracz.RandPoint[id] + ".png");
+				   Gracz.Point(id);
+				   POINT_AI(Gracz);
+				   Gracz.zero(id);
+				   break;
+			   case 8:
+				   if (Gracz.RandType[id] == 1) this->PS9->Image = System::Drawing::Image::FromFile("img\\Card\\sword" + Gracz.RandPoint[id] + ".png");
+				   if (Gracz.RandType[id] == 2) this->PA9->Image = System::Drawing::Image::FromFile("img\\Card\\arrow" + Gracz.RandPoint[id] + ".png");
+				   if (Gracz.RandType[id] == 3) this->PC9->Image = System::Drawing::Image::FromFile("img\\Card\\catapult" + Gracz.RandPoint[id] + ".png");
+				   Gracz.Point(id);
+				   POINT_AI(Gracz);
+				   Gracz.zero(id);
+				   break;
+			   case 9:
+				   if (Gracz.RandType[id] == 1) this->PS10->Image = System::Drawing::Image::FromFile("img\\Card\\sword" + Gracz.RandPoint[id] + ".png");
+				   if (Gracz.RandType[id] == 2) this->PA10->Image = System::Drawing::Image::FromFile("img\\Card\\arrow" + Gracz.RandPoint[id] + ".png");
+				   if (Gracz.RandType[id] == 3) this->PC10->Image = System::Drawing::Image::FromFile("img\\Card\\catapult" + Gracz.RandPoint[id] + ".png");
+				   Gracz.Point(id);
+				   POINT_AI(Gracz);
+				   Gracz.zero(id);
+				   break;
+			   }
+			   
+
+
+
+
+		   }
+
+
+
+
+
 public: System::Void RandButton_Click(System::Object^ sender, System::EventArgs^ e) {
-	srand(time(NULL)); // lososwanie kart, todo optymalizacja
-	int RandPoint[10];
-	int RandType[10];
+	Gracz.ini();
+
+	W[0] = 0;
+	W[1] = 0;
+	W[2] = 0;
 	for (int i = 0; i < 10; i++) {
 		RandPoint[i] = std::rand() % 10 + 1;
 		RandType[i] = std::rand() % 3 + 1;
@@ -828,9 +1432,275 @@ public: System::Void RandButton_Click(System::Object^ sender, System::EventArgs^
 	if (RandType[9] == 3) this->Hand10->Image = System::Drawing::Image::FromFile("img\\Card\\catapult" + RandPoint[9] + ".png");
 	this->RandButton->Enabled = false;
 }
+	  String^ GetPoint(int id)
+	  {
+		  String^ Blah = System::Convert::ToString(id);
+		  return Blah;
+	  }
+	  void SumPoint() {
+		  String^ Blah = System::Convert::ToString((W[0]+W[1]+W[2]));
+		  this->WM->Text = Blah;
+	  }
 private: System::Void Hand1_Click(System::Object^ sender, System::EventArgs^ e) {
-	this->A1->Image = this->Hand1->Image; // przemieszczenie karty
-	this->Hand1->Image = nullptr; // czyszczenie
+	if (this->Hand1->Image != nullptr) {
+		if (RandType[0] == 1) {
+			this->S1->Image = this->Hand1->Image; // przemieszczenie karty
+			W[0] += RandPoint[0];
+			this->SW->Text = GetPoint(W[0]);
+			SumPoint();
+		}
+		if (RandType[0] == 2) {
+			this->A1->Image = this->Hand1->Image; // przemieszczenie karty
+			W[1] += RandPoint[0];
+			this->AW->Text = GetPoint(W[1]);
+			SumPoint();
+		}
+		if (RandType[0] == 3) {
+			this->C1->Image = this->Hand1->Image; // przemieszczenie karty
+			W[2] += RandPoint[0];
+			this->CW->Text = GetPoint(W[2]);
+			SumPoint();
+		}
+		GRA_AI(Gracz);
+		this->Hand1->Image = nullptr; // czyszczenie
+	}
 }
+private: System::Void Hand2_Click_1(System::Object^ sender, System::EventArgs^ e) {
+	if (this->Hand2->Image != nullptr) {
+		if (RandType[1] == 1) {
+			this->S2->Image = this->Hand2->Image; // przemieszczenie karty
+			W[0] += RandPoint[1];
+			this->SW->Text = GetPoint(W[0]);
+			SumPoint();
+		}
+		if (RandType[1] == 2) {
+			this->A2->Image = this->Hand2->Image; // przemieszczenie karty
+			W[1] += RandPoint[1];
+			this->AW->Text = GetPoint(W[1]);
+			SumPoint();
+		}
+		if (RandType[1] == 3) {
+			this->C2->Image = this->Hand2->Image; // przemieszczenie karty
+			W[2] += RandPoint[1];
+			this->CW->Text = GetPoint(W[2]);
+			SumPoint();
+		}
+		this->Hand2->Image = nullptr; // czyszczenie
+		GRA_AI(Gracz);
+	}
+	
+}
+
+
+private: System::Void Hand3_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (this->Hand3->Image != nullptr) {
+		int point = RandPoint[2];
+		int type = RandType[2];
+		if (type == 1) {
+			this->S3->Image = this->Hand3->Image; // przemieszczenie karty
+			W[0] += point;
+			this->SW->Text = GetPoint(W[0]);
+			SumPoint();
+		}
+		if (type == 2) {
+			this->A3->Image = this->Hand3->Image; // przemieszczenie karty
+			W[1] += point;
+			this->AW->Text = GetPoint(W[1]);
+			SumPoint();
+		}
+		if (type == 3) {
+			this->C3->Image = this->Hand3->Image; // przemieszczenie karty
+			W[2] += point;
+			this->CW->Text = GetPoint(W[2]);
+			SumPoint();
+		}
+		this->Hand3->Image = nullptr; // czyszczenie
+		GRA_AI(Gracz);
+	}
+}
+private: System::Void Hand4_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (this->Hand4->Image != nullptr) {
+		int point = RandPoint[3];
+		int type = RandType[3];
+		if (type == 1) {
+			this->S4->Image = this->Hand4->Image; // przemieszczenie karty
+			W[0] += point;
+			this->SW->Text = GetPoint(W[0]);
+			SumPoint();
+		}
+		if (type == 2) {
+			this->A4->Image = this->Hand4->Image; // przemieszczenie karty
+			W[1] += point;
+			this->AW->Text = GetPoint(W[1]);
+			SumPoint();
+		}
+		if (type == 3) {
+			this->C4->Image = this->Hand4->Image; // przemieszczenie karty
+			W[2] += point;
+			this->CW->Text = GetPoint(W[2]);
+			SumPoint();
+		}
+		GRA_AI(Gracz);
+		this->Hand4->Image = nullptr; // czyszczenie
+	}
+}
+private: System::Void Hand5_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (this->Hand5->Image != nullptr) {
+		int point = RandPoint[4];
+		int type = RandType[4];
+		if (type == 1) {
+			this->S5->Image = this->Hand5->Image; // przemieszczenie karty
+			W[0] += point;
+			this->SW->Text = GetPoint(W[0]);
+			SumPoint();
+		}
+		if (type == 2) {
+			this->A5->Image = this->Hand5->Image; // przemieszczenie karty
+			W[1] += point;
+			this->AW->Text = GetPoint(W[1]);
+			SumPoint();
+		}
+		if (type == 3) {
+			this->C5->Image = this->Hand5->Image; // przemieszczenie karty
+			W[2] += point;
+			this->CW->Text = GetPoint(W[2]);
+			SumPoint();
+		}
+		GRA_AI(Gracz);
+		this->Hand5->Image = nullptr; // czyszczenie
+	}
+}
+private: System::Void Hand6_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (this->Hand6->Image != nullptr) {
+		int point = RandPoint[5];
+		int type = RandType[5];
+		if (type == 1) {
+			this->S6->Image = this->Hand6->Image; // przemieszczenie karty
+			W[0] += point;
+			this->SW->Text = GetPoint(W[0]);
+			SumPoint();
+		}
+		if (type == 2) {
+			this->A6->Image = this->Hand6->Image; // przemieszczenie karty
+			W[1] += point;
+			this->AW->Text = GetPoint(W[1]);
+			SumPoint();
+		}
+		if (type == 3) {
+			this->C6->Image = this->Hand6->Image; // przemieszczenie karty
+			W[2] += point;
+			this->CW->Text = GetPoint(W[2]);
+			SumPoint();
+		}
+		GRA_AI(Gracz);
+		this->Hand6->Image = nullptr; // czyszczenie
+	}
+}
+private: System::Void Hand7_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (this->Hand7->Image != nullptr) {
+		int point = RandPoint[6];
+		int type = RandType[6];
+		if (type == 1) {
+			this->S7->Image = this->Hand7->Image; // przemieszczenie karty
+			W[0] += point;
+			this->SW->Text = GetPoint(W[0]);
+			SumPoint();
+		}
+		if (type == 2) {
+			this->A7->Image = this->Hand7->Image; // przemieszczenie karty
+			W[1] += point;
+			this->AW->Text = GetPoint(W[1]);
+			SumPoint();
+		}
+		if (type == 3) {
+			this->C7->Image = this->Hand7->Image; // przemieszczenie karty
+			W[2] += point;
+			this->CW->Text = GetPoint(W[2]);
+			SumPoint();
+		}
+		GRA_AI(Gracz);
+		this->Hand7->Image = nullptr; // czyszczenie
+	}
+}
+private: System::Void Hand8_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (this->Hand8->Image != nullptr) {
+		int point = RandPoint[7];
+		int type = RandType[7];
+		if (type == 1) {
+			this->S8->Image = this->Hand8->Image; // przemieszczenie karty
+			W[0] += point;
+			this->SW->Text = GetPoint(W[0]);
+			SumPoint();
+		}
+		if (type == 2) {
+			this->A8->Image = this->Hand8->Image; // przemieszczenie karty
+			W[1] += point;
+			this->AW->Text = GetPoint(W[1]);
+			SumPoint();
+		}
+		if (type == 3) {
+			this->C8->Image = this->Hand8->Image; // przemieszczenie karty
+			W[2] += point;
+			this->CW->Text = GetPoint(W[2]);
+			SumPoint();
+		}
+		GRA_AI(Gracz);
+		this->Hand8->Image = nullptr; // czyszczenie
+	}
+
+}
+private: System::Void Hand9_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (this->Hand9->Image != nullptr) {
+		int point = RandPoint[8];
+		int type = RandType[8];
+		if (type == 1) {
+			this->S9->Image = this->Hand9->Image; // przemieszczenie karty
+			W[0] += point;
+			this->SW->Text = GetPoint(W[0]);
+			SumPoint();
+		}
+		if (type == 2) {
+			this->A9->Image = this->Hand9->Image; // przemieszczenie karty
+			W[1] += point;
+			this->AW->Text = GetPoint(W[1]);
+			SumPoint();
+		}
+		if (type == 3) {
+			this->C9->Image = this->Hand9->Image; // przemieszczenie karty
+			W[2] += point;
+			this->CW->Text = GetPoint(W[2]);
+			SumPoint();
+		}
+		GRA_AI(Gracz);
+		this->Hand9->Image = nullptr; // czyszczenie
+	}
+}
+private: System::Void Hand10_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (this->Hand10->Image != nullptr) {
+		int point = RandPoint[9];
+		int type = RandType[9];
+		if (type == 1) {
+			this->S10->Image = this->Hand10->Image; // przemieszczenie karty
+			W[0] += point;
+			this->SW->Text = GetPoint(W[0]);
+			SumPoint();
+		}
+		if (type == 2) {
+			this->A10->Image = this->Hand10->Image; // przemieszczenie karty
+			W[1] += point;
+			this->AW->Text = GetPoint(W[1]);
+			SumPoint();
+		}
+		if (type == 3) {
+			this->C10->Image = this->Hand10->Image; // przemieszczenie karty
+			W[2] += point;
+			this->CW->Text = GetPoint(W[2]);
+			SumPoint();
+		}
+		GRA_AI(Gracz);
+		this->Hand10->Image = nullptr; // czyszczenie
+	}
+}
+	   
 };
 }
