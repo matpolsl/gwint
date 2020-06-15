@@ -1,5 +1,7 @@
 #pragma once
 #include "Game.h"
+#include "Manual.h"
+
 namespace Gwint {
 
 	using namespace System;
@@ -101,6 +103,7 @@ namespace Gwint {
 			this->button1->TabIndex = 2;
 			this->button1->Text = L"Instrukcja";
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &MyMenu::button1_Click_1);
 			// 
 			// button2
 			// 
@@ -170,6 +173,10 @@ namespace Gwint {
 
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 	exit(3);
+}
+private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^ e) {
+	Form^ instrukcja = gcnew Manual();
+	instrukcja->Show();
 }
 };
 }

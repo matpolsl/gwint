@@ -1,4 +1,5 @@
   Gwint.Game.resources - Embedded, ContainedInManifestFile, 
+  Gwint.Manual.resources - Embedded, ContainedInManifestFile, 
   Gwint.MyMenu.resources - Embedded, ContainedInManifestFile, 
 ImageRuntimeVersion: v4.0.30319
 Assembly Gwint, Version=1.0.*, Culture=Język niezmienny (kraj niezmienny): 
@@ -26,6 +27,9 @@ Class Gwint.Game: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     GetPoint(Int32): PrivateScope, Public, HideBySig
     SumPointAI(AI*): PrivateScope, Public, HideBySig
     SumPoint(): PrivateScope, Public, HideBySig
+Class Gwint.Manual: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class Gwint.MyMenu: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

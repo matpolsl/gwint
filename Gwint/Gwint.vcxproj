@@ -132,6 +132,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Gra.h" />
+    <ClInclude Include="Manual.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="MyMenu.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -201,6 +204,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Game.resx">
       <DependentUpon>Game.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manual.resx">
+      <DependentUpon>Manual.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyMenu.resx">
       <DependentUpon>MyMenu.h</DependentUpon>

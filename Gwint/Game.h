@@ -1469,6 +1469,7 @@ private: System::Windows::Forms::Button^ NewRound;
 			   SumPointAI(Gracz);
 			   if (R[0] >= 2 || R[1] >= 2) {
 				   this->RandButton->Enabled = true;
+				   this->button1->Enabled = false;
 				   if (R[0] >= 2) {
 					   this->PASS->Text = "AI wygra³o!";
 				   }
@@ -1488,6 +1489,7 @@ private: System::Windows::Forms::Button^ NewRound;
 
 
 public: System::Void RandButton_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->button1->Enabled = true;
 	Gracz.ini();
 	this->PASS->Text = "";
 	this->Wynik->Text = "0/0";
