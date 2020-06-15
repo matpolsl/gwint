@@ -24,6 +24,7 @@ Class Gwint.Game: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     InitializeComponent(): PrivateScope, Public, HideBySig
     RandButton_Click(Object, EventArgs): PrivateScope, Public, HideBySig
     GetPoint(Int32): PrivateScope, Public, HideBySig
+    SumPointAI(AI*): PrivateScope, Public, HideBySig
     SumPoint(): PrivateScope, Public, HideBySig
 Class Gwint.MyMenu: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form

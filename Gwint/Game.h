@@ -4,8 +4,8 @@
 int RandPoint[10];
 int RandType[10];
 int W[3];
-int pomocAI = 0;
-
+int R[2];
+bool UserPass;
 AI Gracz;
 namespace Gwint {
 	using namespace System;
@@ -43,7 +43,8 @@ namespace Gwint {
 			}
 		}
 	private: System::Windows::Forms::Button^ button1;
-	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::Label^ Wynik;
+
 	private: System::Windows::Forms::Label^ CW;
 	private: System::Windows::Forms::Label^ AW;
 	private: System::Windows::Forms::Label^ SW;
@@ -132,6 +133,9 @@ namespace Gwint {
 	private: System::Windows::Forms::PictureBox^ PS3;
 	private: System::Windows::Forms::PictureBox^ PS2;
 	private: System::Windows::Forms::PictureBox^ PS1;
+private: System::Windows::Forms::Label^ PASS;
+private: System::Windows::Forms::Button^ NewRound;
+private: System::Windows::Forms::FontDialog^ Podsumowanie;
 
 
 	protected:
@@ -153,7 +157,7 @@ namespace Gwint {
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Game::typeid));
 			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->Wynik = (gcnew System::Windows::Forms::Label());
 			this->CW = (gcnew System::Windows::Forms::Label());
 			this->AW = (gcnew System::Windows::Forms::Label());
 			this->SW = (gcnew System::Windows::Forms::Label());
@@ -235,6 +239,9 @@ namespace Gwint {
 			this->PS3 = (gcnew System::Windows::Forms::PictureBox());
 			this->PS2 = (gcnew System::Windows::Forms::PictureBox());
 			this->PS1 = (gcnew System::Windows::Forms::PictureBox());
+			this->PASS = (gcnew System::Windows::Forms::Label());
+			this->NewRound = (gcnew System::Windows::Forms::Button());
+			this->Podsumowanie = (gcnew System::Windows::Forms::FontDialog());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Hand1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Hand2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Hand3))->BeginInit();
@@ -317,17 +324,17 @@ namespace Gwint {
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &Game::button1_Click);
 			// 
-			// label1
+			// Wynik
 			// 
-			this->label1->AutoSize = true;
-			this->label1->BackColor = System::Drawing::Color::Transparent;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 27.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Wynik->AutoSize = true;
+			this->Wynik->BackColor = System::Drawing::Color::Transparent;
+			this->Wynik->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 27.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label1->Location = System::Drawing::Point(21, 672);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(70, 42);
-			this->label1->TabIndex = 1;
-			this->label1->Text = L"0/0";
+			this->Wynik->Location = System::Drawing::Point(21, 672);
+			this->Wynik->Name = L"Wynik";
+			this->Wynik->Size = System::Drawing::Size(70, 42);
+			this->Wynik->TabIndex = 1;
+			this->Wynik->Text = L"0/0";
 			// 
 			// CW
 			// 
@@ -1099,6 +1106,29 @@ namespace Gwint {
 			this->PS1->TabIndex = 53;
 			this->PS1->TabStop = false;
 			// 
+			// PASS
+			// 
+			this->PASS->AutoSize = true;
+			this->PASS->BackColor = System::Drawing::Color::Transparent;
+			this->PASS->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->PASS->ForeColor = System::Drawing::Color::DarkRed;
+			this->PASS->Location = System::Drawing::Point(415, 607);
+			this->PASS->Name = L"PASS";
+			this->PASS->Size = System::Drawing::Size(0, 18);
+			this->PASS->TabIndex = 83;
+			// 
+			// NewRound
+			// 
+			this->NewRound->Enabled = false;
+			this->NewRound->Location = System::Drawing::Point(122, 677);
+			this->NewRound->Name = L"NewRound";
+			this->NewRound->Size = System::Drawing::Size(75, 23);
+			this->NewRound->TabIndex = 84;
+			this->NewRound->Text = L"Nowa runda";
+			this->NewRound->UseVisualStyleBackColor = true;
+			this->NewRound->Click += gcnew System::EventHandler(this, &Game::NewRound_Click);
+			// 
 			// Game
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -1106,6 +1136,8 @@ namespace Gwint {
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
 			this->ClientSize = System::Drawing::Size(744, 721);
+			this->Controls->Add(this->NewRound);
+			this->Controls->Add(this->PASS);
 			this->Controls->Add(this->PC10);
 			this->Controls->Add(this->PC9);
 			this->Controls->Add(this->PC8);
@@ -1187,7 +1219,7 @@ namespace Gwint {
 			this->Controls->Add(this->SW);
 			this->Controls->Add(this->AW);
 			this->Controls->Add(this->CW);
-			this->Controls->Add(this->label1);
+			this->Controls->Add(this->Wynik);
 			this->Controls->Add(this->button1);
 			this->MaximumSize = System::Drawing::Size(760, 760);
 			this->MinimumSize = System::Drawing::Size(760, 760);
@@ -1272,111 +1304,173 @@ namespace Gwint {
 #pragma endregion
 
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		UserPass = true;
+		AI* wsk = &Gracz;
+		if (wsk->pass == false) {
+			while (wsk->pass != true) {
+				GRA_AI(wsk);
+			}
+		}
+		donepass(wsk);
 	}
 	private: System::Void Game_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
 
-		   void POINT_AI(AI Gracz) {
-			   this->PA->Text = GetPoint(Gracz.W[1]);
-			   this->PC->Text = GetPoint(Gracz.W[2]);
-			   this->PS->Text = GetPoint(Gracz.W[0]);
+		   void POINT_AI(AI* Gracz) {
+			   this->PA->Text = GetPoint(Gracz->W[1]);
+			   this->PC->Text = GetPoint(Gracz->W[2]);
+			   this->PS->Text = GetPoint(Gracz->W[0]);
+			   SumPointAI(Gracz);
 			}
 
-
-
-		   void GRA_AI(AI Gracz) {
-			   int id = Gracz.Choice();
-			   id += pomocAI;
-			   pomocAI++;
+		   void GRA_AI(AI* Gracz) {
+			   if (Gracz->W[1] + Gracz->W[0] + Gracz->W[2] > (W[0] + W[2] + W[1]) * 4) {
+				   Gracz->pass = true;
+				   this->PASS->Text = "AI PASS!";
+			   }
+			   int id = Gracz->Choice();
 			   switch (id) {
+			   case -1:
+				   Gracz->pass = true;
+				   this->PASS->Text = "AI PASS!";
+				   donepass(Gracz);
+				   break;
 			   case 0:
-				   if (Gracz.RandType[id] == 1) this->PS1->Image = System::Drawing::Image::FromFile("img\\Card\\sword" + Gracz.RandPoint[0] + ".png");
-				   if (Gracz.RandType[id] == 2) this->PA1->Image = System::Drawing::Image::FromFile("img\\Card\\arrow" + Gracz.RandPoint[0] + ".png");
-				   if (Gracz.RandType[id] == 3) this->PC1->Image = System::Drawing::Image::FromFile("img\\Card\\catapult" + Gracz.RandPoint[0] + ".png");
-				   Gracz.Point(id);
+				   if (Gracz->RandType[id] == 1) this->PS1->Image = System::Drawing::Image::FromFile("img\\Card\\sword" + Gracz->RandPoint[0] + ".png");
+				   if (Gracz->RandType[id] == 2) this->PA1->Image = System::Drawing::Image::FromFile("img\\Card\\arrow" + Gracz->RandPoint[0] + ".png");
+				   if (Gracz->RandType[id] == 3) this->PC1->Image = System::Drawing::Image::FromFile("img\\Card\\catapult" + Gracz->RandPoint[0] + ".png");
+				   Gracz->Point(id);
 				   POINT_AI(Gracz);
-				   Gracz.zero(id);
+				   Gracz->zero(id);
+				   donepass(Gracz);
 				   break;
 			   case 1:
-				   if (Gracz.RandType[id] == 1) this->PS2->Image = System::Drawing::Image::FromFile("img\\Card\\sword" + Gracz.RandPoint[id] + ".png");
-				   if (Gracz.RandType[id] == 2) this->PA2->Image = System::Drawing::Image::FromFile("img\\Card\\arrow" + Gracz.RandPoint[id] + ".png");
-				   if (Gracz.RandType[id] == 3) this->PC2->Image = System::Drawing::Image::FromFile("img\\Card\\catapult" + Gracz.RandPoint[id] + ".png");
-				   Gracz.Point(id);
+				   if (Gracz->RandType[id] == 1) this->PS2->Image = System::Drawing::Image::FromFile("img\\Card\\sword" + Gracz->RandPoint[id] + ".png");
+				   if (Gracz->RandType[id] == 2) this->PA2->Image = System::Drawing::Image::FromFile("img\\Card\\arrow" + Gracz->RandPoint[id] + ".png");
+				   if (Gracz->RandType[id] == 3) this->PC2->Image = System::Drawing::Image::FromFile("img\\Card\\catapult" + Gracz->RandPoint[id] + ".png");
+				   Gracz->Point(id);
 				   POINT_AI(Gracz);
-				   Gracz.zero(id);
+				   Gracz->zero(id);
+				   donepass(Gracz);
 				   break;
 			   case 2:
-				   if (Gracz.RandType[id] == 1) this->PS3->Image = System::Drawing::Image::FromFile("img\\Card\\sword" + Gracz.RandPoint[id] + ".png");
-				   if (Gracz.RandType[id] == 2) this->PA3->Image = System::Drawing::Image::FromFile("img\\Card\\arrow" + Gracz.RandPoint[id] + ".png");
-				   if (Gracz.RandType[id] == 3) this->PC3->Image = System::Drawing::Image::FromFile("img\\Card\\catapult" + Gracz.RandPoint[id] + ".png");
-				   Gracz.Point(id);
+				   if (Gracz->RandType[id] == 1) this->PS3->Image = System::Drawing::Image::FromFile("img\\Card\\sword" + Gracz->RandPoint[id] + ".png");
+				   if (Gracz->RandType[id] == 2) this->PA3->Image = System::Drawing::Image::FromFile("img\\Card\\arrow" + Gracz->RandPoint[id] + ".png");
+				   if (Gracz->RandType[id] == 3) this->PC3->Image = System::Drawing::Image::FromFile("img\\Card\\catapult" + Gracz->RandPoint[id] + ".png");
+				   Gracz->Point(id);
 				   POINT_AI(Gracz);
-				   Gracz.zero(id);
+				   Gracz->zero(id);
+				   donepass(Gracz);
 				   break;
 			   case 3:
-				   if (Gracz.RandType[id] == 1) this->PS4->Image = System::Drawing::Image::FromFile("img\\Card\\sword" + Gracz.RandPoint[id] + ".png");
-				   if (Gracz.RandType[id] == 2) this->PA4->Image = System::Drawing::Image::FromFile("img\\Card\\arrow" + Gracz.RandPoint[id] + ".png");
-				   if (Gracz.RandType[id] == 3) this->PC4->Image = System::Drawing::Image::FromFile("img\\Card\\catapult" + Gracz.RandPoint[id] + ".png");
-				   Gracz.Point(id);
+				   if (Gracz->RandType[id] == 1) this->PS4->Image = System::Drawing::Image::FromFile("img\\Card\\sword" + Gracz->RandPoint[id] + ".png");
+				   if (Gracz->RandType[id] == 2) this->PA4->Image = System::Drawing::Image::FromFile("img\\Card\\arrow" + Gracz->RandPoint[id] + ".png");
+				   if (Gracz->RandType[id] == 3) this->PC4->Image = System::Drawing::Image::FromFile("img\\Card\\catapult" + Gracz->RandPoint[id] + ".png");
+				   Gracz->Point(id);
 				   POINT_AI(Gracz);
-				   Gracz.zero(id);
+				   Gracz->zero(id);
+				   donepass(Gracz);
 				   break;
 			   case 4:
-				   if (Gracz.RandType[id] == 1) this->PS5->Image = System::Drawing::Image::FromFile("img\\Card\\sword" + Gracz.RandPoint[id] + ".png");
-				   if (Gracz.RandType[id] == 2) this->PA5->Image = System::Drawing::Image::FromFile("img\\Card\\arrow" + Gracz.RandPoint[id] + ".png");
-				   if (Gracz.RandType[id] == 3) this->PC5->Image = System::Drawing::Image::FromFile("img\\Card\\catapult" + Gracz.RandPoint[id] + ".png");
-				   Gracz.Point(id);
+				   if (Gracz->RandType[id] == 1) this->PS5->Image = System::Drawing::Image::FromFile("img\\Card\\sword" + Gracz->RandPoint[id] + ".png");
+				   if (Gracz->RandType[id] == 2) this->PA5->Image = System::Drawing::Image::FromFile("img\\Card\\arrow" + Gracz->RandPoint[id] + ".png");
+				   if (Gracz->RandType[id] == 3) this->PC5->Image = System::Drawing::Image::FromFile("img\\Card\\catapult" + Gracz->RandPoint[id] + ".png");
+				   Gracz->Point(id);
 				   POINT_AI(Gracz);
-				   Gracz.zero(id);
+				   Gracz->zero(id);
+				   donepass(Gracz);
 				   break;
 			   case 5:
-				   if (Gracz.RandType[id] == 1) this->PS6->Image = System::Drawing::Image::FromFile("img\\Card\\sword" + Gracz.RandPoint[id] + ".png");
-				   if (Gracz.RandType[id] == 2) this->PA6->Image = System::Drawing::Image::FromFile("img\\Card\\arrow" + Gracz.RandPoint[id] + ".png");
-				   if (Gracz.RandType[id] == 3) this->PC6->Image = System::Drawing::Image::FromFile("img\\Card\\catapult" + Gracz.RandPoint[id] + ".png");
-				   Gracz.Point(id);
+				   if (Gracz->RandType[id] == 1) this->PS6->Image = System::Drawing::Image::FromFile("img\\Card\\sword" + Gracz->RandPoint[id] + ".png");
+				   if (Gracz->RandType[id] == 2) this->PA6->Image = System::Drawing::Image::FromFile("img\\Card\\arrow" + Gracz->RandPoint[id] + ".png");
+				   if (Gracz->RandType[id] == 3) this->PC6->Image = System::Drawing::Image::FromFile("img\\Card\\catapult" + Gracz->RandPoint[id] + ".png");
+				   Gracz->Point(id);
 				   POINT_AI(Gracz);
-				   Gracz.zero(id);
+				   Gracz->zero(id);
+				   donepass(Gracz);
 				   break;
 			   case 6:
-				   if (Gracz.RandType[id] == 1) this->PS7->Image = System::Drawing::Image::FromFile("img\\Card\\sword" + Gracz.RandPoint[id] + ".png");
-				   if (Gracz.RandType[id] == 2) this->PA7->Image = System::Drawing::Image::FromFile("img\\Card\\arrow" + Gracz.RandPoint[id] + ".png");
-				   if (Gracz.RandType[id] == 3) this->PC7->Image = System::Drawing::Image::FromFile("img\\Card\\catapult" + Gracz.RandPoint[id] + ".png");
-				   Gracz.Point(id);
+				   if (Gracz->RandType[id] == 1) this->PS7->Image = System::Drawing::Image::FromFile("img\\Card\\sword" + Gracz->RandPoint[id] + ".png");
+				   if (Gracz->RandType[id] == 2) this->PA7->Image = System::Drawing::Image::FromFile("img\\Card\\arrow" + Gracz->RandPoint[id] + ".png");
+				   if (Gracz->RandType[id] == 3) this->PC7->Image = System::Drawing::Image::FromFile("img\\Card\\catapult" + Gracz->RandPoint[id] + ".png");
+				   Gracz->Point(id);
 				   POINT_AI(Gracz);
-				   Gracz.zero(id);
+				   Gracz->zero(id);
+				   donepass(Gracz);
 				   break;
 			   case 7:
-				   if (Gracz.RandType[id] == 1) this->PS8->Image = System::Drawing::Image::FromFile("img\\Card\\sword" + Gracz.RandPoint[id] + ".png");
-				   if (Gracz.RandType[id] == 2) this->PA8->Image = System::Drawing::Image::FromFile("img\\Card\\arrow" + Gracz.RandPoint[id] + ".png");
-				   if (Gracz.RandType[id] == 3) this->PC8->Image = System::Drawing::Image::FromFile("img\\Card\\catapult" + Gracz.RandPoint[id] + ".png");
-				   Gracz.Point(id);
+				   if (Gracz->RandType[id] == 1) this->PS8->Image = System::Drawing::Image::FromFile("img\\Card\\sword" + Gracz->RandPoint[id] + ".png");
+				   if (Gracz->RandType[id] == 2) this->PA8->Image = System::Drawing::Image::FromFile("img\\Card\\arrow" + Gracz->RandPoint[id] + ".png");
+				   if (Gracz->RandType[id] == 3) this->PC8->Image = System::Drawing::Image::FromFile("img\\Card\\catapult" + Gracz->RandPoint[id] + ".png");
+				   Gracz->Point(id);
 				   POINT_AI(Gracz);
-				   Gracz.zero(id);
+				   Gracz->zero(id);
+				   donepass(Gracz);
 				   break;
 			   case 8:
-				   if (Gracz.RandType[id] == 1) this->PS9->Image = System::Drawing::Image::FromFile("img\\Card\\sword" + Gracz.RandPoint[id] + ".png");
-				   if (Gracz.RandType[id] == 2) this->PA9->Image = System::Drawing::Image::FromFile("img\\Card\\arrow" + Gracz.RandPoint[id] + ".png");
-				   if (Gracz.RandType[id] == 3) this->PC9->Image = System::Drawing::Image::FromFile("img\\Card\\catapult" + Gracz.RandPoint[id] + ".png");
-				   Gracz.Point(id);
+				   if (Gracz->RandType[id] == 1) this->PS9->Image = System::Drawing::Image::FromFile("img\\Card\\sword" + Gracz->RandPoint[id] + ".png");
+				   if (Gracz->RandType[id] == 2) this->PA9->Image = System::Drawing::Image::FromFile("img\\Card\\arrow" + Gracz->RandPoint[id] + ".png");
+				   if (Gracz->RandType[id] == 3) this->PC9->Image = System::Drawing::Image::FromFile("img\\Card\\catapult" + Gracz->RandPoint[id] + ".png");
+				   Gracz->Point(id);
 				   POINT_AI(Gracz);
-				   Gracz.zero(id);
+				   Gracz->zero(id);
+				   donepass(Gracz);
 				   break;
 			   case 9:
-				   if (Gracz.RandType[id] == 1) this->PS10->Image = System::Drawing::Image::FromFile("img\\Card\\sword" + Gracz.RandPoint[id] + ".png");
-				   if (Gracz.RandType[id] == 2) this->PA10->Image = System::Drawing::Image::FromFile("img\\Card\\arrow" + Gracz.RandPoint[id] + ".png");
-				   if (Gracz.RandType[id] == 3) this->PC10->Image = System::Drawing::Image::FromFile("img\\Card\\catapult" + Gracz.RandPoint[id] + ".png");
-				   Gracz.Point(id);
+				   if (Gracz->RandType[id] == 1) this->PS10->Image = System::Drawing::Image::FromFile("img\\Card\\sword" + Gracz->RandPoint[id] + ".png");
+				   if (Gracz->RandType[id] == 2) this->PA10->Image = System::Drawing::Image::FromFile("img\\Card\\arrow" + Gracz->RandPoint[id] + ".png");
+				   if (Gracz->RandType[id] == 3) this->PC10->Image = System::Drawing::Image::FromFile("img\\Card\\catapult" + Gracz->RandPoint[id] + ".png");
+				   Gracz->Point(id);
 				   POINT_AI(Gracz);
-				   Gracz.zero(id);
+				   Gracz->zero(id);
+				   donepass(Gracz);
 				   break;
 			   }
-			   
+
 
 
 
 
 		   }
+		   void donepass(AI* Gracz) {
+			   if (UserPass == true && Gracz->pass == true)
+				   this->NewRound->Enabled = true;
+		   }
+		   void NewRund(AI* Gracz) {
+			   int AI = Gracz->W[1] + Gracz->W[0] + Gracz->W[2];
+			   int User = W[0] + W[1] + W[2];
+			   if (AI > User) {
+				   R[0]++;
+			   }
+			   else {
+				   if (User > AI) {
+					   R[1]++;
+				   }
+				   else {
+					   R[0]++;
+					   R[1]++;
+				   }
+			   }
+			   this->Wynik->Text = R[0]+"/"+R[1];
+			   this->CW->Text = "0";
+			   this->AW->Text = "0";
+			   this->SW->Text = "0";
 
+			   this->PS->Text = "0";
+			   this->PA->Text = "0";
+			   this->PC->Text = "0";
+			   Gracz->W[0] = 0;
+			   Gracz->W[1] = 0;
+			   Gracz->W[2] = 0;
+			   W[0] = 0;
+			   W[1] = 0;
+			   W[2] = 0;
+			   SumPoint();
+			   SumPointAI(Gracz);
+			   UserPass = false;
+			   Gracz->pass = false;
+			   this->PASS->Text = "";
+		   }
 
 
 
@@ -1387,6 +1481,7 @@ public: System::Void RandButton_Click(System::Object^ sender, System::EventArgs^
 	W[0] = 0;
 	W[1] = 0;
 	W[2] = 0;
+	UserPass = false;
 	for (int i = 0; i < 10; i++) {
 		RandPoint[i] = std::rand() % 10 + 1;
 		RandType[i] = std::rand() % 3 + 1;
@@ -1437,6 +1532,10 @@ public: System::Void RandButton_Click(System::Object^ sender, System::EventArgs^
 		  String^ Blah = System::Convert::ToString(id);
 		  return Blah;
 	  }
+	  void SumPointAI(AI* Gracz) {
+		  String^ Blah = System::Convert::ToString((Gracz->W[0] + Gracz->W[1] + Gracz->W[2]));
+		  this->WP->Text = Blah;
+	  }
 	  void SumPoint() {
 		  String^ Blah = System::Convert::ToString((W[0]+W[1]+W[2]));
 		  this->WM->Text = Blah;
@@ -1461,7 +1560,7 @@ private: System::Void Hand1_Click(System::Object^ sender, System::EventArgs^ e) 
 			this->CW->Text = GetPoint(W[2]);
 			SumPoint();
 		}
-		GRA_AI(Gracz);
+		GRA_AI(&Gracz);
 		this->Hand1->Image = nullptr; // czyszczenie
 	}
 }
@@ -1486,7 +1585,7 @@ private: System::Void Hand2_Click_1(System::Object^ sender, System::EventArgs^ e
 			SumPoint();
 		}
 		this->Hand2->Image = nullptr; // czyszczenie
-		GRA_AI(Gracz);
+		GRA_AI(&Gracz);
 	}
 	
 }
@@ -1515,7 +1614,7 @@ private: System::Void Hand3_Click(System::Object^ sender, System::EventArgs^ e) 
 			SumPoint();
 		}
 		this->Hand3->Image = nullptr; // czyszczenie
-		GRA_AI(Gracz);
+		GRA_AI(&Gracz);
 	}
 }
 private: System::Void Hand4_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -1540,7 +1639,7 @@ private: System::Void Hand4_Click(System::Object^ sender, System::EventArgs^ e) 
 			this->CW->Text = GetPoint(W[2]);
 			SumPoint();
 		}
-		GRA_AI(Gracz);
+		GRA_AI(&Gracz);
 		this->Hand4->Image = nullptr; // czyszczenie
 	}
 }
@@ -1566,7 +1665,7 @@ private: System::Void Hand5_Click(System::Object^ sender, System::EventArgs^ e) 
 			this->CW->Text = GetPoint(W[2]);
 			SumPoint();
 		}
-		GRA_AI(Gracz);
+		GRA_AI(&Gracz);
 		this->Hand5->Image = nullptr; // czyszczenie
 	}
 }
@@ -1592,7 +1691,7 @@ private: System::Void Hand6_Click(System::Object^ sender, System::EventArgs^ e) 
 			this->CW->Text = GetPoint(W[2]);
 			SumPoint();
 		}
-		GRA_AI(Gracz);
+		GRA_AI(&Gracz);
 		this->Hand6->Image = nullptr; // czyszczenie
 	}
 }
@@ -1618,7 +1717,7 @@ private: System::Void Hand7_Click(System::Object^ sender, System::EventArgs^ e) 
 			this->CW->Text = GetPoint(W[2]);
 			SumPoint();
 		}
-		GRA_AI(Gracz);
+		GRA_AI(&Gracz);
 		this->Hand7->Image = nullptr; // czyszczenie
 	}
 }
@@ -1644,7 +1743,7 @@ private: System::Void Hand8_Click(System::Object^ sender, System::EventArgs^ e) 
 			this->CW->Text = GetPoint(W[2]);
 			SumPoint();
 		}
-		GRA_AI(Gracz);
+		GRA_AI(&Gracz);
 		this->Hand8->Image = nullptr; // czyszczenie
 	}
 
@@ -1671,7 +1770,7 @@ private: System::Void Hand9_Click(System::Object^ sender, System::EventArgs^ e) 
 			this->CW->Text = GetPoint(W[2]);
 			SumPoint();
 		}
-		GRA_AI(Gracz);
+		GRA_AI(&Gracz);
 		this->Hand9->Image = nullptr; // czyszczenie
 	}
 }
@@ -1697,10 +1796,76 @@ private: System::Void Hand10_Click(System::Object^ sender, System::EventArgs^ e)
 			this->CW->Text = GetPoint(W[2]);
 			SumPoint();
 		}
-		GRA_AI(Gracz);
+		GRA_AI(&Gracz);
 		this->Hand10->Image = nullptr; // czyszczenie
 	}
 }
 	   
+private: System::Void NewRound_Click(System::Object^ sender, System::EventArgs^ e) {
+	NewRund(&Gracz);
+	this->NewRound->Enabled = false;
+	/*Przeciwnika*/
+	this->PS1->Image = nullptr;
+	this->PS2->Image = nullptr;
+	this->PS3->Image = nullptr;
+	this->PS4->Image = nullptr;
+	this->PS5->Image = nullptr;
+	this->PS6->Image = nullptr;
+	this->PS7->Image = nullptr;
+	this->PS8->Image = nullptr;
+	this->PS9->Image = nullptr;
+	this->PS10->Image = nullptr;
+	this->PA1->Image = nullptr;
+	this->PA2->Image = nullptr;
+	this->PA3->Image = nullptr;
+	this->PA4->Image = nullptr;
+	this->PA5->Image = nullptr;
+	this->PA6->Image = nullptr;
+	this->PA7->Image = nullptr;
+	this->PA8->Image = nullptr;
+	this->PA9->Image = nullptr;
+	this->PA10->Image = nullptr;
+	this->PC1->Image = nullptr;
+	this->PC2->Image = nullptr;
+	this->PC3->Image = nullptr;
+	this->PC4->Image = nullptr;
+	this->PC5->Image = nullptr;
+	this->PC6->Image = nullptr;
+	this->PC7->Image = nullptr;
+	this->PC8->Image = nullptr;
+	this->PC9->Image = nullptr;
+	this->PC10->Image = nullptr;
+	/*Usera*/
+	this->S1->Image = nullptr;
+	this->S2->Image = nullptr;
+	this->S3->Image = nullptr;
+	this->S4->Image = nullptr;
+	this->S5->Image = nullptr;
+	this->S6->Image = nullptr;
+	this->S7->Image = nullptr;
+	this->S8->Image = nullptr;
+	this->S9->Image = nullptr;
+	this->S10->Image = nullptr;
+	this->A1->Image = nullptr;
+	this->A2->Image = nullptr;
+	this->A3->Image = nullptr;
+	this->A4->Image = nullptr;
+	this->A5->Image = nullptr;
+	this->A6->Image = nullptr;
+	this->A7->Image = nullptr;
+	this->A8->Image = nullptr;
+	this->A9->Image = nullptr;
+	this->A10->Image = nullptr;
+	this->C1->Image = nullptr;
+	this->C2->Image = nullptr;
+	this->C3->Image = nullptr;
+	this->C4->Image = nullptr;
+	this->C5->Image = nullptr;
+	this->C6->Image = nullptr;
+	this->C7->Image = nullptr;
+	this->C8->Image = nullptr;
+	this->C9->Image = nullptr;
+	this->C10->Image = nullptr;
+}
 };
 }
