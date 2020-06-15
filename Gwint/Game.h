@@ -1220,6 +1220,7 @@ private: System::Windows::Forms::Button^ NewRound;
 			this->Controls->Add(this->CW);
 			this->Controls->Add(this->Wynik);
 			this->Controls->Add(this->button1);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MaximumSize = System::Drawing::Size(760, 760);
 			this->MinimumSize = System::Drawing::Size(760, 760);
 			this->Name = L"Game";

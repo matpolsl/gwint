@@ -36,11 +36,12 @@ namespace Gwint {
 		}
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	protected:
-	private: System::Windows::Forms::ContextMenuStrip^ contextMenuStrip1;
+
 	private: System::Windows::Forms::Button^ Graj;
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::PictureBox^ pictureBox2;
 
 	private: System::ComponentModel::IContainer^ components;
 
@@ -59,15 +60,15 @@ namespace Gwint {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->components = (gcnew System::ComponentModel::Container());
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyMenu::typeid));
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-			this->contextMenuStrip1 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
 			this->Graj = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// pictureBox1
@@ -81,12 +82,6 @@ namespace Gwint {
 			this->pictureBox1->Size = System::Drawing::Size(984, 711);
 			this->pictureBox1->TabIndex = 0;
 			this->pictureBox1->TabStop = false;
-			this->pictureBox1->Click += gcnew System::EventHandler(this, &MyMenu::pictureBox1_Click);
-			// 
-			// contextMenuStrip1
-			// 
-			this->contextMenuStrip1->Name = L"contextMenuStrip1";
-			this->contextMenuStrip1->Size = System::Drawing::Size(61, 4);
 			// 
 			// Graj
 			// 
@@ -115,6 +110,7 @@ namespace Gwint {
 			this->button2->TabIndex = 3;
 			this->button2->Text = L"Zakoñcz program";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &MyMenu::button2_Click);
 			// 
 			// label1
 			// 
@@ -128,6 +124,17 @@ namespace Gwint {
 			this->label1->TabIndex = 4;
 			this->label1->Text = L"Autor: Mateusz Bereta";
 			// 
+			// pictureBox2
+			// 
+			this->pictureBox2->BackColor = System::Drawing::Color::Transparent;
+			this->pictureBox2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.BackgroundImage")));
+			this->pictureBox2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->pictureBox2->Location = System::Drawing::Point(24, 145);
+			this->pictureBox2->Name = L"pictureBox2";
+			this->pictureBox2->Size = System::Drawing::Size(657, 514);
+			this->pictureBox2->TabIndex = 5;
+			this->pictureBox2->TabStop = false;
+			// 
 			// MyMenu
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -135,17 +142,20 @@ namespace Gwint {
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(984, 711);
+			this->Controls->Add(this->pictureBox2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->Graj);
 			this->Controls->Add(this->pictureBox1);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MaximumSize = System::Drawing::Size(1000, 750);
 			this->MinimumSize = System::Drawing::Size(1000, 750);
 			this->Name = L"MyMenu";
 			this->Text = L"Gra: Gwint";
 			this->Load += gcnew System::EventHandler(this, &MyMenu::MyMenu_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -157,7 +167,9 @@ namespace Gwint {
 		Form^ Gra = gcnew Game();
 		Gra->Show();
 	}
-private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
+
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+	exit(3);
 }
 };
 }
