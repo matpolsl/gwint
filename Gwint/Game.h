@@ -1324,7 +1324,7 @@ private: System::Windows::Forms::Button^ NewRound;
 			}
 
 		   void GRA_AI(AI* Gracz) {
-			   if (Gracz->W[1] + Gracz->W[0] + Gracz->W[2] > (W[0] + W[2] + W[1]) + 8 && R[1]==0) {
+			   if (Gracz->W[1] + Gracz->W[0] + Gracz->W[2] > (W[0] + W[2] + W[1]) + 8 && R[0]==0) {
 				   Gracz->pass = true;
 				   this->PASS->Text = "AI PASS!";
 			   }
